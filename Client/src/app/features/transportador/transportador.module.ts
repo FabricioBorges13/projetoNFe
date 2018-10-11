@@ -10,6 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { TransportadorRouting } from './transportador-routing.module';
 import { TransportadorGridService, TransportadorService, TransportadorResolveService } from './shared/transportador.service';
 import { TransportadorViewComponent } from './transportador-view/transportador-view.component';
+import {Ng2BRPipesModule} from 'ng2-brpipes';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { TransportadorViewComponent } from './transportador-view/transportador-v
         GridModule,
         NDDTabsbarModule,
         NDDTitlebarModule,
+        Ng2BRPipesModule,
     ],
     declarations: [
         TransportadorListComponent,
@@ -30,6 +32,10 @@ import { TransportadorViewComponent } from './transportador-view/transportador-v
         TransportadorGridService,
         TransportadorService,
         TransportadorResolveService,
+    ],
+
+    exports:[
+        Ng2BRPipesModule,
     ],
 })
 

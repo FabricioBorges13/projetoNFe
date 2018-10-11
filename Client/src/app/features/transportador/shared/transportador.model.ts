@@ -44,7 +44,7 @@ export class TransportadorUpdateCommand {
     constructor(transportador: any) {
         this.id = transportador.id;
         this.nomeRazaoSocial = transportador.nomeRazaoSocial;
-        this.numeroDoDocumento = transportador.numeroDoDocumento;
+        this.numeroDoDocumento = transportador.numeroDocumento;
         this.inscricaoEstadual = transportador.inscricaoEstadual;
         this.endereco = new Endereco();
         this.endereco.logradouro = transportador.logradouro;

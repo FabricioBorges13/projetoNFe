@@ -18,7 +18,7 @@ export class TransportadorEditComponent implements OnInit, OnDestroy {
     private form: FormGroup = this.fb.group({
         nomeRazaoSocial: ['', Validators.required],
         inscricaoEstadual: ['', Validators.required],
-        numeroDoDocumento: ['', Validators.required],
+        numeroDocumento: ['', Validators.required],
         logradouro: ['', Validators.required],
         numero: ['', Validators.required],
         bairro: ['', Validators.required],
@@ -38,7 +38,7 @@ export class TransportadorEditComponent implements OnInit, OnDestroy {
                 this.form.patchValue({
                     nomeRazaoSocial: transportador.nomeRazaoSocial,
                     inscricaoEstadual: transportador.inscricaoEstadual,
-                    numeroDoDocumento: transportador.numeroDoDocumento,
+                    numeroDocumento: transportador.numeroDocumento,
                     logradouro: transportador.endereco.logradouro,
                     numero: transportador.endereco.numero,
                     bairro: transportador.endereco.bairro,

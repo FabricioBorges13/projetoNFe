@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 })
 
 export class TransportadorDetailComponent implements OnInit, OnDestroy {
-    public availabilityText: string = '';
+
     public transportador: Transportador;
     public isLoading: boolean = false;
     private ngUnsubscribe: Subject<void> = new Subject<void>();
