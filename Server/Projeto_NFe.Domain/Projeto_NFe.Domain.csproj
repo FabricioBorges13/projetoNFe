@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32A00BEF-B8E9-4704-9571-07AC2A9A64E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Projeto_NFe.Domain</RootNamespace>
+    <AssemblyName>Projeto_NFe.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Entidade.cs" />
+    <Compile Include="Base\Exceptions\BusinessException.cs" />
+    <Compile Include="Base\Exceptions\CodigosDeErro.cs" />
+    <Compile Include="Base\Exceptions\DomainException.cs" />
+    <Compile Include="Base\Exceptions\NotFoundException.cs" />
+    <Compile Include="Base\Identificacao\Identificacao.cs" />
+    <Compile Include="Base\Imposto\Imposto.cs" />
+    <Compile Include="Base\Imposto\ValorImpostoInvalido.cs" />
+    <Compile Include="Base\NumeroDeDocumentos\CNPJInvalidoPossuiLetrasOuForaDePadraoException .cs" />
+    <Compile Include="Base\NumeroDeDocumentos\CNPJInvalidoValorInvalidoException.cs" />
+    <Compile Include="Base\NumeroDeDocumentos\CPFInvalidoPossuiLetrasOuForaDePadraoException.cs" />
+    <Compile Include="Base\NumeroDeDocumentos\CPFInvalidoValorInvalidoException.cs" />
+    <Compile Include="Base\NumeroDeDocumentos\NumeroDeDocumento.cs" />
+    <Compile Include="Base\NumeroDeDocumentos\NumeroDocumentoVazioOuNuloException.cs" />
+    <Compile Include="Base\NumeroDeDocumentos\NumeroDoDocumentoInvalido.cs" />
+    <Compile Include="Features\Destinatarios\Destinatario.cs" />
+    <Compile Include="Features\Destinatarios\IDestinatarioRepository.cs" />
+    <Compile Include="Features\Emitentes\Emitente.cs" />
+    <Compile Include="Features\Emitentes\IEmitenteRepository.cs" />
+    <Compile Include="Features\Emitentes\ValorMunicipalException.cs" />
+    <Compile Include="Features\Enderecos\Endereco.cs" />
+    <Compile Include="Features\Enderecos\ExceptionBairroInvalidoVazioOuNulo.cs" />
+    <Compile Include="Features\Enderecos\ExceptionEstadoInvalidoVazioOuNulo.cs" />
+    <Compile Include="Features\Enderecos\ExceptionLogradouroInvalidoVazioOuNulo.cs" />
+    <Compile Include="Features\Enderecos\ExceptionMunicipioInvalidoVazioOuNulo.cs" />
+    <Compile Include="Features\Enderecos\ExceptionNumeroInvalidoMenorDoQueUm.cs" />
+    <Compile Include="Features\Enderecos\ExceptionPaisInvalidoVazioOuNulo.cs" />
+    <Compile Include="Features\Enderecos\IEnderecoRepository.cs" />
+    <Compile Include="Features\NotasFiscais\Exceptions\ExceptionChaveDeAcessoInvalidaOuAusente.cs" />
+    <Compile Include="Features\NotasFiscais\Exceptions\ExceptionDataDeEntradaMaiorQueDataEmissao - Cópia .cs" />
+    <Compile Include="Features\NotasFiscais\Exceptions\ExceptionNaturezaOperacaoVaziaOuNulo.cs" />
+    <Compile Include="Features\NotasFiscais\Exceptions\ExceptionNotaFiscalInvalida .cs" />
+    <Compile Include="Features\NotasFiscais\Exceptions\ExceptionNotaJaEmitida.cs" />
+    <Compile Include="Features\NotasFiscais\INotaFiscalEmissaoRepository.cs" />
+    <Compile Include="Features\NotasFiscais\INotaFiscalRepository.cs" />
+    <Compile Include="Features\NotasFiscais\NotaFiscal.cs" />
+    <Compile Include="Features\Produtos\IProdutoRepository.cs" />
+    <Compile Include="Features\Produtos\Produto.cs" />
+    <Compile Include="Features\Transportadores\ITransportadorRepository.cs" />
+    <Compile Include="Features\Transportadores\Transportador.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

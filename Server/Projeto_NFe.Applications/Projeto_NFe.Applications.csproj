@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4EC3FF1-5591-43A2-B9A3-E46E117491ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Projeto_NFe.Applications</RootNamespace>
+    <AssemblyName>Projeto_NFe.Applications</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.0.100\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="Features\Emitentes\Commands\EmitenteAddCommand.cs" />
+    <Compile Include="Features\Emitentes\Commands\EmitenteDeleteCommand.cs" />
+    <Compile Include="Features\Emitentes\Commands\EmitenteUpdateCommand.cs" />
+    <Compile Include="Features\Emitentes\EmitenteService.cs" />
+    <Compile Include="Features\Emitentes\IEmitenteService.cs" />
+    <Compile Include="Features\Emitentes\Mapping\MappingProfile.cs" />
+    <Compile Include="Features\Emitentes\Query\EmitenteQuery.cs" />
+    <Compile Include="Features\Emitentes\ViewModel\EmitenteViewModel.cs" />
+    <Compile Include="Features\Enderecos\EnderecoAddCommand.cs" />
+    <Compile Include="Features\Enderecos\Mapping\MappingProfile.cs" />
+    <Compile Include="Features\NotasFiscais\Commands\NotaFiscalAddCommand.cs" />
+    <Compile Include="Features\NotasFiscais\Commands\NotaFiscalUpdateProdutosCommand.cs" />
+    <Compile Include="Features\NotasFiscais\Commands\NotaFiscalDeleteCommand.cs" />
+    <Compile Include="Features\NotasFiscais\Commands\NotaFiscalUpdateCommand.cs" />
+    <Compile Include="Features\NotasFiscais\INotaFiscalService.cs" />
+    <Compile Include="Features\NotasFiscais\Mapping\MappingProfile.cs" />
+    <Compile Include="Features\NotasFiscais\NotaFiscalService.cs" />
+    <Compile Include="Features\Destinatarios\ViewModels\DestinatarioNaNotaFiscalViewModel.cs" />
+    <Compile Include="Features\Emitentes\ViewModel\EmitenteNaNotaFiscalViewModel.cs" />
+    <Compile Include="Features\NotasFiscais\ViewModel\NotaFiscalExtend.cs" />
+    <Compile Include="Features\NotasFiscais\ViewModel\NotaFiscalViewModel.cs" />
+    <Compile Include="Features\Enderecos\ViewModel\EnderecoViewModel.cs" />
+    <Compile Include="Features\Destinatarios\Commands\DestinatarioAddCommand.cs" />
+    <Compile Include="Features\Destinatarios\Commands\DestinatarioDeleteCommand.cs" />
+    <Compile Include="Features\Destinatarios\Commands\DestinatarioUpdateCommand.cs" />
+    <Compile Include="Features\Destinatarios\DestinatarioService.cs" />
+    <Compile Include="Features\Destinatarios\IDestinatarioService.cs" />
+    <Compile Include="Features\Destinatarios\Mapping\MappingProfile.cs" />
+    <Compile Include="Features\Destinatarios\Querries\DestinatarioQuery.cs" />
+    <Compile Include="Features\Destinatarios\ViewModels\DestinatarioViewModel.cs" />
+    <Compile Include="Features\Transportadores\ViewModel\TransportadoraNaNotaFiscalViewModel.cs" />
+    <Compile Include="Features\Produtos\Commands\ProdutoAddCommand.cs" />
+    <Compile Include="Features\Produtos\Commands\ProdutoDeleteCommand.cs" />
+    <Compile Include="Features\Produtos\Commands\ProdutoUpdateCommand.cs" />
+    <Compile Include="Features\Produtos\IProdutoService.cs" />
+    <Compile Include="Features\Produtos\Mapping\MappingProfile.cs" />
+    <Compile Include="Features\Produtos\ProdutoService.cs" />
+    <Compile Include="Features\Produtos\Query\ProdutoQuery.cs" />
+    <Compile Include="Features\Produtos\ViewModels\ProdutoViewModel.cs" />
+    <Compile Include="Features\Transportadores\Commands\TransportadorAddCommand.cs" />
+    <Compile Include="Features\Transportadores\Commands\TransportadorDeleteCommand.cs" />
+    <Compile Include="Features\Transportadores\Commands\TransportadorUpdateCommand.cs" />
+    <Compile Include="Features\Transportadores\ITransportadorService.cs" />
+    <Compile Include="Features\Transportadores\Mapping\MappingProfile.cs" />
+    <Compile Include="Features\Transportadores\Query\TransportadorQuery.cs" />
+    <Compile Include="Features\Transportadores\TransportadorService.cs" />
+    <Compile Include="Features\Transportadores\ViewModel\TransportadorViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projeto_NFe.Domain\Projeto_NFe.Domain.csproj">
+      <Project>{32A00BEF-B8E9-4704-9571-07AC2A9A64E6}</Project>
+      <Name>Projeto_NFe.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,11 @@
+C:\Users\ndduser\Desktop\Projeto_NFe\Projeto_NFe.Infra\bin\Debug\Projeto_NFe.Infra.dll
+C:\Users\ndduser\Desktop\Projeto_NFe\Projeto_NFe.Infra\bin\Debug\Projeto_NFe.Infra.pdb
+C:\Users\ndduser\Desktop\Projeto_NFe\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.csprojAssemblyReference.cache
+C:\Users\ndduser\Desktop\Projeto_NFe\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.csproj.CoreCompileInputs.cache
+C:\Users\ndduser\Desktop\Projeto_NFe\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.dll
+C:\Users\ndduser\Desktop\Projeto_NFe\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.pdb
+C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Infra\bin\Debug\Projeto_NFe.Infra.dll
+C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Infra\bin\Debug\Projeto_NFe.Infra.pdb
+C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.csproj.CoreCompileInputs.cache
+C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.dll
+C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Infra\obj\Debug\Projeto_NFe.Infra.pdb
