@@ -1,0 +1,48 @@
+<ngx-loading-bar></ngx-loading-bar>
+<ndd-ng-navbar navbarLogoClass="ndd-ng-navbar__brand-image" (onNavbarToggle)="toggleSidebar()">
+</ndd-ng-navbar>
+
+<ndd-ng-sidebar [sidebarHeader]="false" [sidebarI18n]="true" (onSidebarPin)="setPin($event)">
+    <div ndd-ng-sidebar-menu class="ndd-ng-sidebar-menu">
+        <ndd-ng-sidebar-option
+            optionId="menu-orders" 
+            optionHref="/notafiscal"
+            optionText="Nota Fiscal"
+            optionIcon="ndd-font ndd-font-file-invoice-dollar-solid">
+         </ndd-ng-sidebar-option>
+        
+        <ndd-ng-sidebar-option
+            optionId="menu-products"
+            optionHref="/emitente"
+            optionText="Emitente"
+            optionIcon="ndd-font ndd-font-mail-bulk-solid">
+         </ndd-ng-sidebar-option>
+
+         <ndd-ng-sidebar-option
+            optionId="menu-orders"
+            optionHref="/destinatario"
+            optionText="Destinatário"
+            optionIcon="ndd-font ndd-font-map-marker-alt-solid">
+         </ndd-ng-sidebar-option>
+
+         <ndd-ng-sidebar-option
+            optionId="menu-orders"
+            optionHref="/transportador"
+            optionText="Transportador"
+            optionIcon="ndd-font ndd-font-truck-solid">
+         </ndd-ng-sidebar-option>
+
+         <ndd-ng-sidebar-option
+            optionId="menu-orders"
+            optionHref="/produto"
+            optionText="Produto"
+            optionIcon="ndd-font ndd-font-industry-solid">
+         </ndd-ng-sidebar-option>
+
+         
+    </div>
+</ndd-ng-sidebar>
+
+<div class="content" [ngClass]="{'content--ndd-sidebar-pinned': pinned}">
+    <router-outlet></router-outlet>
+</div>

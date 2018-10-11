@@ -1,0 +1,180 @@
+<div class="feature-view">
+    <ndd-ng-titlebar titlebarIcon="ndd-font ndd-font-create" [titlebarTitle]="title" [titlebarRouterToReturnOnClose]="returnRoute"></ndd-ng-titlebar>
+
+    <div class="feature-view-tab__content">
+        <form (ngSubmit)="onSubmit()" [formGroup]="formModel" class="form">
+            <div class="row">
+                <!-- #region Coluna 1 -->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="feature-view__title">Dados Cadastrais</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="row feature-view__group">
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="nomeRazaoSocial" [class.form__label--error]="formModel.get('nomeRazaoSocial').hasError('required') && formModel.get('nomeRazaoSocial').touched">Nome
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="nomeRazaoSocial" type="text" id="nomeRazaoSocial" class="form__input" placeHolder="Digite sua razão social"
+                                        [class.form__input--error]="form.get('name').hasError('required') && form.get('name').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('nomeRazaoSocial').hasError('required') && form.get('nomeRazaoSocial').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row feature-view__group" *ngIf="isEmpresa">
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="inscricaoestadual" [class.form__label--error]="form.get('inscricaoestadual').hasError('required') && form.get('inscricaoestadual').touched">Inscricao Estadual
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="inscricaoestadual" type="number" id="inscricaoestadual" class="form__input" placeHolder="Digite sua inscrição estadual"
+                                        [class.form__input--error]="form.get('inscricaoestadual').hasError('required') && form.get('inscricaoestadual').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('inscricaoestadual').hasError('required') && form.get('inscricaoestadual').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="inscricaomunicipal" [class.form__label--error]="form.get('inscricaomunicipal').hasError('required') && form.get('inscricaomunicipal').touched">Inscricao Municipal
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="inscricaomunicipal" type="number" id="inscricaomunicipal" class="form__input" placeHolder="Digite a sua inscrição municipal"
+                                        [class.form__input--error]="form.get('inscricaomunicipal').hasError('required') && form.get('inscricaomunicipal').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('inscricaomunicipal').hasError('required') && form.get('inscricaomunicipal').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="numerodocumento" [class.form__label--error]="form.get('numerodocumento').hasError('required') && form.get('numerodocumento').touched">CNPJ
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="numerodocumento" type="text" id="numerodocumento" class="form__input" placeHolder="digite seu numero de documento"
+                                        [class.form__input--error]="form.get('numerodocumento').hasError('required') && form.get('numerodocumento').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('numerodocumento').hasError('required') && form.get('numerodocumento').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row feature-view__group" *ngIf="isEmpresa == false">
+
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="numerodocumento" [class.form__label--error]="form.get('numerodocumento').hasError('required') && form.get('numerodocumento').touched">CPF
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="numerodocumento" type="text" id="numerodocumento" class="form__input" placeHolder="digite seu numero de documento"
+                                        [class.form__input--error]="form.get('numerodocumento').hasError('required') && form.get('numerodocumento').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('numerodocumento').hasError('required') && form.get('numerodocumento').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="feature-view__title">Endereço</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row feature-view__group">
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="logradouro" [class.form__label--error]="form.get('logradouro').hasError('required') && form.get('logradouro').touched">Logradouro
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="logradouro" type="text" id="logradouro" class="form__input" placeHolder="Digite seu logradouro" [class.form__input--error]="form.get('logradouro').hasError('required') && form.get('logradouro').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('logradouro').hasError('required') && form.get('logradouro').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="bairro" [class.form__label--error]="form.get('bairro').hasError('required') && form.get('bairro').touched">Bairro
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="bairro" type="text" id="bairro" class="form__input" placeHolder="Digite seu bairro" [class.form__input--error]="form.get('bairro').hasError('required') && form.get('bairro').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('bairro').hasError('required') && form.get('bairro').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="numero" [class.form__label--error]="form.get('numero').hasError('required') && form.get('numero').touched">Número
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="numero" type="number" id="numero" class="form__input" placeHolder="Digite seu numero" [class.form__input--error]="form.get('numero').hasError('required') && form.get('numero').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('numero').hasError('required') && form.get('numero').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="municipio" [class.form__label--error]="form.get('municipio').hasError('required') && form.get('municipio').touched">Município
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="municipio" type="number" id="municipio" class="form__input" placeHolder="Digite seu município" [class.form__input--error]="form.get('municipio').hasError('required') && form.get('municipio').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('municipio').hasError('required') && form.get('municipio').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 feature-view__body">
+                                <div>
+                                    <label class="form__label" for="estado" [class.form__label--error]="form.get('estado').hasError('required') && form.get('estado').touched">Estado
+                                        <span class="form__label form__label--required">*</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input formControlName="estado" type="text" id="estado" class="form__input" placeHolder="Digite seu estado" [class.form__input--error]="form.get('estado').hasError('required') && form.get('estado').touched">
+                                    <span class="form__label form__label--error" *ngIf="form.get('estado').hasError('required') && form.get('estado').touched">
+                                        Campo Obrigatório
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="feature-view__footer">
+        <button class="ndd-ng-button ndd-ng-button--primary" type="submit" [disabled]="form.invalid">Salvar</button>
+        <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Cancelar</button>
+    </div>
+
+    <div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+    <div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>
+</div>

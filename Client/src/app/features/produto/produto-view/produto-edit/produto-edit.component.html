@@ -1,0 +1,134 @@
+<form (ngSubmit)="onSubmit($event)" [formGroup]="formModel" class="form">
+    <div class="feature-view-tab__content">
+        <div class="ndd-ng-form">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Dados Cadastrais</span>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6 form__group">
+                                <div>
+                                    <span class="form__label"
+                                    [class.form__label--error]="formModel.get('codigoProduto').touched 
+                                    && formModel.get('codigoProduto').hasError('required')">Codigo Produto
+                                        <span class="form__label--required">*</span>
+                                    </span>
+                                </div>
+                                <input class="form__input" 
+                                [class.form__input--error]="formModel.get('codigoProduto').touched && formModel.get('codigoProduto').hasError('required')"
+                                autocomplete="off" type="text" formControlName="codigoProduto" id="codigoProduto">
+                                <span class="form__label form__label--error form__label--message" *ngIf="formModel.get('codigoProduto').touched && formModel.get('codigoProduto').hasError('required')">
+                                    Field is required
+                                </span>
+                            </div>
+
+                            <div class="col-sm-6 form__group">
+                                <div>
+                                    <span class="form__label"
+                                    [class.form__label--error]="formModel.get('descricao').touched 
+                                    && formModel.get('descricao').hasError('required')">Descricao
+                                        <span class="form__label--required">*</span>
+                                    </span>
+                                </div>
+                                <input class="form__input" 
+                                [class.form__input--error]="formModel.get('descricao').touched && formModel.get('descricao').hasError('required')"
+                                autocomplete="off" type="text" formControlName="descricao" id="descricao">
+                                <span class="form__label form__label--error form__label--message" *ngIf="formModel.get('descricao').touched && formModel.get('descricao').hasError('required')">
+                                    Field is required
+                                </span>
+                            </div>
+
+                            <div class="col-sm-6 form__group">
+                                <div>
+                                    <span class="form__label"
+                                    [class.form__label--error]="formModel.get('quantidade').touched 
+                                    && formModel.get('quantidade').hasError('min')">Quantidade
+                                        <span class="form__label form__label--required">*</span>
+                                    </span>
+                                </div>
+                                <input class="form__input" 
+                                [class.form__input--error]="formModel.get('quantidade').touched 
+                                && formModel.get('quantidade').hasError('min')"
+                                 type="number" min="0" step="1" formControlName="quantidade" id="quantidade" />
+
+                                <span class="form__label form__label--error form__label--message" *ngIf="formModel.get('quantidade').touched
+                         && formModel.get('quantidade').hasError('min')" >
+                                    Campo precisa ser maior que 0
+                                </span>
+                            </div>
+
+                            <div class="col-sm-6 form__group">
+                                <div>
+                                    <span class="form__label"
+                                    [class.form__label--error]="formModel.get('valorUnitario').touched 
+                                    && formModel.get('valorUnitario').hasError('min')">Valor Unitario
+                                        <span class="form__label form__label--required">*</span>
+                                    </span>
+                                </div>
+                                <input class="form__input" 
+                                [class.form__input--error]="formModel.get('valorUnitario').touched
+                                && formModel.get('valorUnitario').hasError('min')"
+                                 type="number" min="0" step="0.01" formControlName="valorUnitario" id="valorUnitario" />
+
+                                <span class="form__label form__label--error form__label--message" *ngIf="formModel.get('valorUnitario').touched
+                         && formModel.get('valorUnitario').hasError('min')" >
+                            Campo precisa ser maior que 0
+                                </span>
+                            </div>
+
+                            <div class="col-sm-6 form__group">
+                                <div>
+                                    <span class="form__label"
+                                    [class.form__label--error]="formModel.get('valorIcms').touched 
+                                    && formModel.get('valorIcms').hasError('min')">Valor ICMS
+                                        <span class="form__label form__label--required">*</span>
+                                    </span>
+                                </div>
+                                <input class="form__input" 
+                                [class.form__input--error]="formModel.get('valorIcms').touched && formModel.get('valorIcms').hasError('min')"
+                                 type="number" min="0" step="0.01" formControlName="valorIcms" id="valorIcms" />
+
+                                <span class="form__label form__label--error form__label--message" *ngIf="formModel.get('valorIcms').touched
+                         && formModel.get('valorIcms').hasError('min')" >
+                             Campo precisa ser maior que 0
+                                </span>
+                            </div>
+
+                            <div class="col-sm-6 form__group">
+                                <div>
+                                    <span class="form__label"
+                                    [class.form__label--error]="formModel.get('valorIpi').touched 
+                                    &&  formModel.get('valorIpi').hasError('min')">Valor IPI
+                                        <span class="form__label form__label--required">*</span>
+                                    </span>
+                                </div>
+                                <input class="form__input" 
+                                [class.form__input--error]="formModel.get('valorIpi').touched && formModel.get('valorIpi').hasError('min')"
+                                 type="number" min="0" step="0.01" formControlName="valorIpi" id="valorIpi" />
+
+                                <span class="form__label form__label--error form__label--message" *ngIf="formModel.get('valorIpi').touched
+                         && formModel.get('valorIpi').hasError('min')" >
+                                    Campo precisa ser maior que 0
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-view-tab__footer">
+                <button type="submit" class="ndd-ng-button ndd-ng-button--primary" [disabled]="formModel.invalid">
+                    Save
+                </button>
+                <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Voltar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

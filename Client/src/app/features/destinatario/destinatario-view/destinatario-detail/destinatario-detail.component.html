@@ -1,0 +1,132 @@
+<div class="feature-view-tab__content">
+    <div class="row">
+        <div class="col-sm-6">
+
+            <!--#region Coluna 1-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Dados Cadastrais</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Nome</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.nomeRazaoSocial}}" class="feature-view__value">
+                                    {{ destinatario?.nomeRazaoSocial }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Número de Documento</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.numeroDoDocumento }}" class="feature-view__value">
+                                    {{ destinatario?.numeroDoDocumento }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <div>
+                                <span class="feature-view__label">Inscricao Estadual</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.inscricaoEstadual }}" class="feature-view__value">
+                                    {{ destinatario?.inscricaoEstadual }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #endregion-->
+        </div>
+        <div class="col-sm-6">
+            <!--#region Coluna 3-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Endereço</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Logradouro</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.endereco.logradouro  }}" class="feature-view__value">
+                                    {{ destinatario?.endereco.logradouro }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Número</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.endereco.numero }}" class="feature-view__value">
+                                    {{ destinatario?.endereco.numero }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Bairro</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.endereco.bairro }}" class="feature-view__value">
+                                    {{ destinatario?.endereco.bairro }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Municipio</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.endereco.municipio }}" class="feature-view__value">
+                                    {{ destinatario?.endereco.municipio }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Estado</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.endereco.estado }}" class="feature-view__value">
+                                    {{ destinatario?.endereco.estado }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">País</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ destinatario?.endereco.pais }}" class="feature-view__value">
+                                    {{ destinatario?.endereco.pais }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #endregion-->
+        </div>
+
+    </div>
+</div>
+<div class="feature-view-tab__footer">
+    <button class="ndd-ng-button ndd-ng-button--primary" (click)="onEdit()">Editar</button>
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Voltar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

@@ -1,0 +1,139 @@
+<div class="feature-view-tab__content">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Dados cadastrais</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Nome Fantasia</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.nomeRazaoSocial }}" class="feature-view__value">
+                                    {{ transportador?.nomeRazaoSocial }}
+                                </span>
+                            </div>
+                        </div>                     
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row feature-view__group">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Inscrição Estadual</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.inscricaoEstadual }}" class="feature-view__value">
+                                    {{ transportador?.inscricaoEstadual  }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">CPF/CNPJ</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.numeroDocumento }}" class="feature-view__value">
+                                    {{ transportador?.numeroDocumento }}
+                                </span>
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Endereço</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Logradouro</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.endereco.logradouro }}" class="feature-view__value">
+                                    {{ transportador?.endereco.logradouro }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Número</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.endereco.numero }}" class="feature-view__value">
+                                    {{ transportador?.endereco.numero }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Bairro</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.endereco.bairro }}" class="feature-view__value">
+                                    {{ transportador?.endereco.bairro }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Municipio</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.endereco.municipio }}" class="feature-view__value">
+                                    {{ transportador?.endereco.municipio }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Estado</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.endereco.estado }}" class="feature-view__value">
+                                    {{ transportador?.endereco.estado }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Pais</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.endereco.pais }}" class="feature-view__value">
+                                    {{ transportador?.endereco.pais }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+    </div>
+</div>
+<div class="feature-view-tab__footer">
+    <button class="ndd-ng-button ndd-ng-button--primary" (click)="onEdit()">Editar</button>
+
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Voltar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>
+
+
