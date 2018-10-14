@@ -1,4 +1,3 @@
-import { Emitente } from './../../shared/emitente.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { EmitenteValidators } from '../../shared/emitente.validator';
@@ -13,9 +12,8 @@ import { Subject } from 'rxjs/Subject';
 export class EmitenteEditComponent implements OnInit, OnDestroy {
     public emitente: Emitente;
     public isLoading: boolean;
-    public data: any[];
-    public title: string = 'Novo Emitente';
-    public form: FormGroup = this.fb.group({
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
+    private form: FormGroup = this.fb.group({
         nomeRazaoSocial: ['', Validators.required],
         numeroDoDocumento: ['', [Validators.required]],
         inscricaoEstadual: ['', [Validators.required]],
@@ -26,7 +24,6 @@ export class EmitenteEditComponent implements OnInit, OnDestroy {
         municipio: ['', Validators.required],
         estado: ['', Validators.required],
     }, {validator: EmitenteValidators.checkCPNJ });
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
     constructor(private resolver: EmitenteResolveService,
         private service: EmitenteService,
         private fb: FormBuilder,
@@ -40,23 +37,34 @@ export class EmitenteEditComponent implements OnInit, OnDestroy {
                 .do(() => this.isLoading = false)
                 .subscribe((emitente: Emitente) => {
                     this.emitente = Object.assign(new Emitente(), emitente);
-                    this.form.patchValue(new EmitenteFormModel(this.emitente));
+                    this.form.patchValue({
+                        nomeRazaoSocial: emitente.nomeRazaoSocial,
+                        numeroDoDocumento: emitente.numeroDoDocumento,
+                        inscricaoEstadual: emitente.inscricaoEstadual,
+                        inscricaoMunicipal: emitente.inscricaoMunicipal,
+                        logradouro: emitente.endereco.logradouro,
+                        numero: emitente.endereco.numero,
+                        bairro: emitente.endereco.bairro,
+                        municipio: emitente.endereco.municipio,
+                        estado: emitente.endereco.estado,
+                    });
                 });
         }
         public submit(): void {
-            const emitenteUpdate: EmitenteDataCommand = new EmitenteDataCommand(this.form.value);
-            emitenteUpdate.id = this.emitente.id;
-            this.service.update(emitenteUpdate)
-                .take(1)
-                .do(() => this.redirect())
-                .subscribe((res: boolean) => res);
+            const cmd: EmitenteDataCommand = new EmitenteDataCommand(this.form.value);
+            cmd.id = this.emitente.id,
+                this.service.update(cmd)
+                    .take(1)
+                    .subscribe(() => {
+                        this.resolver.resolveFromRouteAndNotify();
+                        this.router.navigate(['../'], { relativeTo: this.route });
+                    });
         }
         public ngOnDestroy(): void {
             this.ngUnsubscribe.next();
             this.ngUnsubscribe.complete();
         }
         private redirect(): void {
-            this.resolver.resolveFromRouteAndNotify();
             this.router.navigate(['../'], { relativeTo: this.route });
         }
     }

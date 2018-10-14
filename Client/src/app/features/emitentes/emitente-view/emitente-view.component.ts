@@ -26,7 +26,7 @@ export class EmitenteViewComponent implements OnInit, OnDestroy {
     }
     public createProperty(): void {
         this.title = this.emitente.nomeRazaoSocial;
-        const emitenteNumeroDocumento: string = 'CPF/CNPJ: ' + this.emitente.numeroDoDocumento;
+        const emitenteNumeroDocumento: string = 'CNPJ: ' + this.emitente.numeroDoDocumento;
         const emitenteInscricaoEstadual: string = 'Inscrição Estadual: ' + this.emitente.inscricaoEstadual;
         const emitenteInscricaoMunicipal: string = 'Inscrição Municipal: ' + this.emitente.inscricaoMunicipal;
 

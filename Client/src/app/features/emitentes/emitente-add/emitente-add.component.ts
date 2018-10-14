@@ -32,8 +32,6 @@ export class EmitenteAddComponent {
                 .take(1)
                 .do(() => this.redirect())
                 .subscribe((res: boolean) => res);
-                // tslint:disable-next-line:no-console
-                console.log('adicionado emitente');
         }
         private redirect(): void {
             this.router.navigate(['./emitente']);

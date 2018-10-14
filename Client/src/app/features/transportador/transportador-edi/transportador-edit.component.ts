@@ -38,7 +38,7 @@ export class TransportadorEditComponent implements OnInit, OnDestroy {
                 this.form.patchValue({
                     nomeRazaoSocial: transportador.nomeRazaoSocial,
                     inscricaoEstadual: transportador.inscricaoEstadual,
-                    numeroDocumento: transportador.numeroDocumento,
+                    numeroDocumento: transportador.numeroDoDocumento,
                     logradouro: transportador.endereco.logradouro,
                     numero: transportador.endereco.numero,
                     bairro: transportador.endereco.bairro,
@@ -52,11 +52,6 @@ export class TransportadorEditComponent implements OnInit, OnDestroy {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
     }
-
-    public onEdit(): void {
-        this.router.navigate(['./', `editar`], { relativeTo: this.route });
-    }
-
     public onSubmit(): void {
         const cmd: TransportadorUpdateCommand = new TransportadorUpdateCommand(this.form.value);
         cmd.id = this.transportador.id,
@@ -67,5 +62,7 @@ export class TransportadorEditComponent implements OnInit, OnDestroy {
                     this.router.navigate(['../'], { relativeTo: this.route });
                 });
     }
-
+    private redirect(): void {
+        this.router.navigate(['../'], { relativeTo: this.route });
+    }
 }

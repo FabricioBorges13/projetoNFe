@@ -1,5 +1,5 @@
 <div class="feature-view">
-    <ndd-ng-titlebar titlebarIcon="ndd-font ndd-font-create" [titlebarTitle]="title" [titlebarRouterToReturnOnClose]="returnRoute"></ndd-ng-titlebar>
+    <ndd-ng-titlebar titlebarIcon="ndd-font ndd-font-mail-bulk-solid" [titlebarTitle]="title" [titlebarRouterToReturnOnClose]="returnRoute"></ndd-ng-titlebar>
 
     <div class="feature-view__content">
         <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
@@ -147,11 +147,36 @@
                                 </label>
                             </div>
                             <div>
-                                <input formControlName="estado" type="text" id="estado" class="form__input" placeHolder="Digite seu estado"
-                                maxlength="50" [class.form__input--error]="form.get('estado').hasError('required') && form.get('estado').touched">
-                                <span class="form__label form__label--error" *ngIf="form.get('estado').hasError('required') && form.get('estado').touched">
-                                    Campo Obrigatório
-                                </span>
+                                <select class="form__input--dropdown" formControlName="estado" id="estado" [class.form__input--error]="form.get('estado').touched && form.get('estado').hasError('required')">
+                                    <option value="">Escolha seu Estado</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
                             </div>
                         </div>
                     </div>
