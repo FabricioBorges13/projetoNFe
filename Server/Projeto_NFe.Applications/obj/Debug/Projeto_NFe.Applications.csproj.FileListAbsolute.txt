@@ -32,3 +32,21 @@ C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Applicatio
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.csproj.CopyComplete
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.dll
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\Projeto_NFe.Applications.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\Projeto_NFe.Applications.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\AutoMapper.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\FluentValidation.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\Projeto_NFe.Domain.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\System.ValueTuple.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\Projeto_NFe.Domain.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\AutoMapper.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\AutoMapper.xml
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\FluentValidation.xml
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\bin\Debug\System.ValueTuple.xml
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.csprojAssemblyReference.cache
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.csproj.CoreCompileInputs.cache
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.csproj.CopyComplete
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Applications\obj\Debug\Projeto_NFe.Applications.pdb

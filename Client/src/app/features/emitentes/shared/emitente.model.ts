@@ -42,25 +42,23 @@ export class EmitenteDeleteCommand {
 }
 
 export class EmitenteFormModel {
-    public id?: number;
-    public inscricaomunicipal: string;
     public nomeRazaoSocial: string;
-    public inscricaoestadual: string;
-    public numerodocumento: string;
-    public endereco: Endereco;
+    public inscricaoMunicipal: string;
+    public inscricaoEstadual: string;
+    public numeroDoDocumento: string;
+    public endereco: any;
 
     constructor(emitente: any) {
-        this.id = emitente.id;
-        this.inscricaomunicipal = emitente.inscricaoMunicipal;
-        this.inscricaoestadual = emitente.inscricaoEstadual;
+        this.inscricaoMunicipal = emitente.inscricaoMunicipal;
+        this.inscricaoEstadual = emitente.inscricaoEstadual;
         this.nomeRazaoSocial = emitente.nomeRazaoSocial;
-        this.numerodocumento = emitente.numeroDoDocumento;
-        this.endereco = new Endereco();
-        this.endereco.logradouro = emitente.logradouro;
-        this.endereco.bairro = emitente.bairro;
-        this.endereco.numero = emitente.numero;
-        this.endereco.municipio = emitente.municipio;
-        this.endereco.estado = emitente.estado;
-        this.endereco.pais = 'Brasil';
+        this.numeroDoDocumento = emitente.numeroDoDocumento;
+        this.endereco ={
+        logradouro: emitente.logradouro,
+        bairro: emitente.bairro,
+        numero: emitente.numero,
+        municipio: emitente.municipio,
+        estado: emitente.estado,
+        };
     }
 }

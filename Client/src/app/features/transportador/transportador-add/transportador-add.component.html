@@ -111,15 +111,14 @@
                         Field is required
                     </span>
                 </div>
-                <div class="col feature-view__group">
-                    <div class="col-sm-6">
-                        <div>
-                            <span class="form__label" [class.form__label--error]="form.get('estado').touched 
-                                                                    && form.get('estado').hasError('required')">Estado
-                                <span class="form__label--required">*</span>
-                            </span>
-                        </div>
-                        <select formControlName="estado" id="estado" class="col-md-12" [class.form__input--error]="form.get('estado').touched && form.get('estado').hasError('required')">
+                <div class="col-md-6 col-sm-6 feature-view__body">
+                    <div>
+                        <label class="form__label" for="estado" [class.form__label--error]="form.get('estado').hasError('required') && form.get('estado').touched">Estado
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                    </div>
+                    <div>
+                        <select class="form__input--dropdown" formControlName="estado" id="estado" [class.form__input--error]="form.get('estado').touched && form.get('estado').hasError('required')">
                             <option value="">Escolha seu Estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>

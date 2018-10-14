@@ -1,4 +1,4 @@
-<div class="feature-view__content">
+<div class="feature-view-tab__content">
     <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
         <div class="row">
             <div class="col-sm-12">
@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-6 col-sm-6 feature-view__body">
                 <div>
-                    <span class="form__label" [class.form__label--error]="form.get('numeroDocumento').touched 
+                    <span class="form__label" [class.form__label--error]="form.get('numeroDoDocumento').touched 
                                             && form.get('numeroDocumento').hasError('required')">CPF/CNPJ
                         <span class="form__label--required">*</span>
                     </span>
@@ -108,15 +108,14 @@
                     Field is required
                 </span>
             </div>
-            <div class="col feature-view__group">
-                <div class="col-sm-6">
-                    <div>
-                        <span class="form__label" [class.form__label--error]="form.get('estado').touched 
-                                                                        && form.get('estado').hasError('required')">Estado
-                            <span class="form__label--required">*</span>
-                        </span>
-                    </div>
-                    <select formControlName="estado" id="estado" class="col-md-12" [class.form__input--error]="form.get('estado').touched && form.get('estado').hasError('required')">
+            <div class="col-sm-6">
+                <div>
+                    <label class="form__label" [class.form__label--error]="form.get('estado').touched && form.get('estado').hasError('required')">Estado
+                        <span class="form__label--required">*</span>
+                    </label>
+                </div>
+                <div>
+                    <select class="form__input--dropdown" formControlName="estado" id="estado" [class.form__input--error]="form.get('estado').touched && form.get('estado').hasError('required')">
                         <option value="">Escolha seu Estado</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
