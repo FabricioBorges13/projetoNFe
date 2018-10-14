@@ -5,11 +5,12 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { NDDTitlebarModule } from '../../shared/ndd-ng-titlebar/component';
 import { NDDTabsbarModule } from '../../shared/ndd-ng-tabsbar/component';
 import { NotaFiscalRoutingModule } from './notafiscal-routing.module';
+import { NotaFiscalGridService, NotaFiscalService } from './shared/notafiscal.service';
 
 @NgModule({
     declarations: [NotaFiscalListComponent],
     imports: [ SharedModule, GridModule, NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule ],
     exports: [],
-    providers: [],
+    providers: [NotaFiscalGridService, NotaFiscalService],
 })
 export class NotaFiscalModule {}
