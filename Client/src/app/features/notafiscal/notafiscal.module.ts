@@ -1,3 +1,4 @@
+import { DestinatarioService } from './../destinatario/shared/destinatario.service';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { GridModule } from '@progress/kendo-angular-grid';
@@ -10,12 +11,14 @@ import { NotaFiscalAddComponent } from './notafiscal-add/notafiscal-add.componen
 import { NotaFiscalDetailComponent } from './notafiscal-view/notafiscal-detail/notafiscal-detail.component';
 import { NotaFiscalListComponent } from './notafiscal-list/notafiscal-list.component';
 import { NotaFiscalViewComponent } from './notafiscal-view/notafiscal-view.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { EmitenteService } from '../emitentes/shared/emitente.service';
+import { TransportadorService } from '../transportador/shared/transportador.service';
 
 @NgModule({
-    declarations: [NotaFiscalListComponent, NotaFiscalAddComponent,
-        NotaFiscalDetailComponent, NotaFiscalViewComponent],
-    imports: [ SharedModule, GridModule, NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule ],
+    declarations: [NotaFiscalListComponent, NotaFiscalAddComponent, NotaFiscalDetailComponent, NotaFiscalViewComponent],
+    imports: [ SharedModule, GridModule, NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule, DropDownsModule ],
     exports: [],
-    providers: [NotaFiscalGridService, NotaFiscalService, NotaFiscalResolveService],
+    providers: [NotaFiscalGridService, NotaFiscalService, EmitenteService, TransportadorService, DestinatarioService],
 })
 export class NotaFiscalModule {}

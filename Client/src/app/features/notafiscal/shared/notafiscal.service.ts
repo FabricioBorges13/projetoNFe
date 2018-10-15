@@ -50,14 +50,6 @@ export class NotaFiscalService extends BaseService {
         return this.http.get(`${this.api}/${id}`).map((response: NotaFiscal) => response);
     }
 
-    public getByName(filterValue: string): Observable<NotaFiscal[]> {
-        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(NomeRazaoSocial), tolower('${filterValue}'))`;
-
-        return this.http
-            .get(`${this.api}?${queryStr}`)
-            .map((response: any) => response.items);
-    }
-
     public add(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
         return this.http.post(this.api, notafiscal).map((response: boolean) => response);
     }
@@ -94,3 +86,26 @@ export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal>
             });
     }
 }
+@Injectable()
+export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
+    constructor(
+        private notaFiscalService: NotaFiscalService,
+        private breadcrumbService: NDDBreadcrumbService,
+        router: Router) {
+        super(router);
+        this.paramsProperty = 'notaFiscalId';
+    }
+    protected loadEntity(notaFiscalId: number): Observable<NotaFiscal> {
+        return this.notaFiscalService
+            .get(notaFiscalId)
+            .take(1)
+            .do((notaFiscal: NotaFiscal) => {
+                this.breadcrumbService.setMetadata({
+                    id: 'notaFiscal',
+                    label: notaFiscal.chaveAcesso,
+                    sizeLimit: true,
+                });
+            });
+    }
+}
+
