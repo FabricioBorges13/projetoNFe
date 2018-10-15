@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotaFiscalListComponent } from './notafiscal-list/notafiscal-list.component';
 import { NotaFiscalAddComponent } from './notafiscal-add/notafiscal-add.component';
+import { NotaFiscalResolveService } from './shared/notafiscal.service';
+import { NotaFiscalViewComponent } from './notafiscal-view/notafiscal-view.component';
+import { NotaFiscalDetailComponent } from './notafiscal-view/notafiscal-detail/notafiscal-detail.component';
 
 const notafiscalRoutes: Routes = [
     {
@@ -15,7 +18,7 @@ const notafiscalRoutes: Routes = [
     {
         path: ':notafiscalId',
         resolve: {
-            /*emitente: NotaFiscalResolveService,*/
+            notafiscal: NotaFiscalResolveService,
         },
         data: {
             breadcrumbOptions: {
@@ -25,7 +28,7 @@ const notafiscalRoutes: Routes = [
         children: [
             {
                 path: '',
-                /*component: EmitenteViewComponent,*/
+                component: NotaFiscalViewComponent,
                 children: [
                     {
                         path: '',
@@ -37,7 +40,7 @@ const notafiscalRoutes: Routes = [
                         children: [
                             {
                                 path: '',
-                                /*component: EmitenteDetailComponent,*/
+                                component: NotaFiscalDetailComponent,
                             },
                             {
                                 path: 'edit',

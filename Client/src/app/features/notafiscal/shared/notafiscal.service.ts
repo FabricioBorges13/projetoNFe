@@ -39,29 +39,6 @@ export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
 }
 
 @Injectable()
-export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
-    constructor(
-        private notaFiscalService: NotaFiscalService,
-        private breadcrumbService: NDDBreadcrumbService,
-        router: Router) {
-        super(router);
-        this.paramsProperty = 'notaFiscalId';
-    }
-    protected loadEntity(notaFiscalId: number): Observable<NotaFiscal> {
-        return this.notaFiscalService
-            .get(notaFiscalId)
-            .take(1)
-            .do((notaFiscal: NotaFiscal) => {
-                this.breadcrumbService.setMetadata({
-                    id: 'notaFiscal',
-                    label: notaFiscal.chaveAcesso,
-                    sizeLimit: true,
-                });
-            });
-    }
-}
-
-@Injectable()
 export class NotaFiscalService extends BaseService {
     private api: string;
     constructor(@Inject(CORE_CONFIG_TOKEN) config: ICoreConfig, public http: HttpClient) {
@@ -93,5 +70,27 @@ export class NotaFiscalService extends BaseService {
 
         return this.deleteRequestWithBody(this.api, notafiscal);
     }
+}
 
+@Injectable()
+export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
+    constructor(
+        private notaFiscalService: NotaFiscalService,
+        private breadcrumbService: NDDBreadcrumbService,
+        router: Router) {
+        super(router);
+        this.paramsProperty = 'notaFiscalId';
+    }
+    protected loadEntity(notaFiscalId: number): Observable<NotaFiscal> {
+        return this.notaFiscalService
+            .get(notaFiscalId)
+            .take(1)
+            .do((notaFiscal: NotaFiscal) => {
+                this.breadcrumbService.setMetadata({
+                    id: 'notaFiscal',
+                    label: notaFiscal.chaveAcesso,
+                    sizeLimit: true,
+                });
+            });
+    }
 }
