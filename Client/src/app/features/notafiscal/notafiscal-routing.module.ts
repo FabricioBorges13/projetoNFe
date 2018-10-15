@@ -7,7 +7,8 @@ const notafiscalRoutes: Routes = [
         path: '',
         component: NotaFiscalListComponent,
     },
-]
+];
+
 @NgModule({
     declarations: [],
     imports: [RouterModule.forChild(notafiscalRoutes)],
