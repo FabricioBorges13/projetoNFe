@@ -1,0 +1,144 @@
+<div class="feature-view-tab__content">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Dados Cadastrais</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-sm-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Data Emissão</span>
+                    </div>
+                    <div>
+                        <span title="{{ notaFiscal?.dataEmissao }}" class="feature-view__value">
+                            {{ notaFiscal?.dataEmissao }}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Data Entreda</span>
+                    </div>
+                    <div>
+                        <span title="{{ notaFiscal?.dataEntrada }}" class="feature-view__value">
+                            {{ notaFiscal?.dataEntrada }}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Transportador</span>
+                    </div>
+                    <div>
+                        <span title="{{ notaFiscal?.transportador.nomeRazaoSocial }}" class="feature-view__value">
+                            {{ notaFiscal?.transportador.nomeRazaoSocial }}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Emitente</span>
+                    </div>
+                    <div>
+                        <span title="{{ notaFiscal?.emitente.nomeRazaoSocial }}" class="feature-view__value">
+                            {{ notaFiscal?.emitente.nomeRazaoSocial }}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Destinatario</span>
+                    </div>
+                    <div>
+                        <span title="{{ notaFiscal?.destinatario.nomeRazaoSocial }}" class="feature-view__value">
+                            {{ notaFiscal?.destinatario.nomeRazaoSocial }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6"> 
+             <!-- Informações do endereço -->
+             <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Valor da nota</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-md-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Valor IPI</span>
+                    </div>
+                    <div class="truncate">
+                        <span title="{{ notaFiscal?.valorIpi }}" class="feature-view__value">
+                            {{ notaFiscal?.valorIpi }}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Valor ICMS</span>
+                    </div>
+                    <div class="truncate">
+                        <span title="{{ notaFiscal?.valorIcms }}" class="feature-view__value">
+                            {{ notaFiscal?.valorIcms}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Valor do Frete</span>
+                    </div>
+                    <div class="truncate">
+                        <span title="{{ notaFiscal?.valorDoFrete }}" class="feature-view__value">
+                            {{ notaFiscal?.valorDoFrete}}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Preço Total</span>
+                    </div>
+                    <div class="truncate">
+                        <span title="{{ notaFiscal?.precoTotal }}" class="feature-view__value">
+                            {{ notaFiscal?.precoTotal }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Valor Total dos Produtos</span>
+                    </div>
+                    <div class="truncate">
+                        <span title="{{ notaFiscal?.valorTotalDosProdutos }}" class="feature-view__value">
+                            {{ notaFiscal?.valorTotalDosProdutos }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 feature-view__body">
+                    <div>
+                        <span class="feature-view__label">Valor Total Dos Produtos</span>
+                    </div>
+                    <div class="truncate">
+                        <span title="{{ notaFiscal?.valorTotalDaNota }}" class="feature-view__value">
+                            {{ notaFiscal?.valorTotalDaNota}}
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feature-view__footer">
+    <button class="ndd-ng-button ndd-ng-button--primary" (click)="onEdit()">Editar</button>
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Voltar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

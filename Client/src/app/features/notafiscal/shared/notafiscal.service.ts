@@ -7,9 +7,13 @@ import { State, toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BaseService } from '../../../core/utils';
 import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand } from './notafiscal.model';
+import { AbstractResolveService } from '../../../core/utils/abstract-resolve.service';
+import { Router } from '@angular/router';
+import { NDDBreadcrumbService } from '../../../shared/ndd-ng-breadcrumb';
 
 @Injectable()
 export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
+
     public loading: boolean;
 
     constructor(
@@ -31,6 +35,29 @@ export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
                 total: parseInt(response.count, 10),
             }))
             .do(() => this.loading = false);
+    }
+}
+
+@Injectable()
+export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
+    constructor(
+        private notaFiscalService: NotaFiscalService,
+        private breadcrumbService: NDDBreadcrumbService,
+        router: Router) {
+        super(router);
+        this.paramsProperty = 'notaFiscalId';
+    }
+    protected loadEntity(notaFiscalId: number): Observable<NotaFiscal> {
+        return this.notaFiscalService
+            .get(notaFiscalId)
+            .take(1)
+            .do((notaFiscal: NotaFiscal) => {
+                this.breadcrumbService.setMetadata({
+                    id: 'notaFiscal',
+                    label: notaFiscal.chaveAcesso,
+                    sizeLimit: true,
+                });
+            });
     }
 }
 
