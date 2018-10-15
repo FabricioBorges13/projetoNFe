@@ -53,12 +53,11 @@ export class EmitenteFormModel {
         this.inscricaoEstadual = emitente.inscricaoEstadual;
         this.nomeRazaoSocial = emitente.nomeRazaoSocial;
         this.numeroDoDocumento = emitente.numeroDoDocumento;
-        this.endereco ={
-        logradouro: emitente.logradouro,
-        bairro: emitente.bairro,
-        numero: emitente.numero,
-        municipio: emitente.municipio,
-        estado: emitente.estado,
-        };
+        this.endereco = new Endereco();
+        this.endereco.logradouro = emitente.logradouro;
+        this.endereco.bairro = emitente.bairro;
+        this.endereco.numero = emitente.numero;
+        this.endereco.municipio = emitente.municipio;
+        this.endereco.estado = emitente.estado;
     }
 }
