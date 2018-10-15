@@ -6,7 +6,7 @@ import { ICoreConfig, CORE_CONFIG_TOKEN } from '../../../core/core.config';
 import { State, toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BaseService } from '../../../core/utils';
-import { NotaFiscal, NotaFiscalDeleteCommand } from './notafiscal.model';
+import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand } from './notafiscal.model';
 
 @Injectable()
 export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
@@ -37,17 +37,16 @@ export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
 @Injectable()
 export class NotaFiscalService extends BaseService {
     private api: string;
-
     constructor(@Inject(CORE_CONFIG_TOKEN) config: ICoreConfig, public http: HttpClient) {
         super(http);
-        this.api = `${config.apiEndpoint}api/emitente`;
+        this.api = `${config.apiEndpoint}api/notafiscal`;
     }
 
     public get(id: number): Observable<NotaFiscal> {
         return this.http.get(`${this.api}/${id}`).map((response: NotaFiscal) => response);
     }
-/*
-    public getByName(filterValue: string): Observable<Emitente[]> {
+
+    public getByName(filterValue: string): Observable<NotaFiscal[]> {
         const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(NomeRazaoSocial), tolower('${filterValue}'))`;
 
         return this.http
@@ -55,13 +54,13 @@ export class NotaFiscalService extends BaseService {
             .map((response: any) => response.items);
     }
 
-    public add(emitente: EmitenteDataCommand): Observable<boolean> {
-        return this.http.post(this.api, emitente).map((response: boolean) => response);
+    public add(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
+        return this.http.post(this.api, notafiscal).map((response: boolean) => response);
     }
 
-    public update(emitente: EmitenteDataCommand): Observable<boolean> {
-        return this.http.put(this.api, emitente).map((response: boolean) => response);
-    }*/
+    public update(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
+        return this.http.put(this.api, notafiscal).map((response: boolean) => response);
+    }
 
     public delete(notafiscal: NotaFiscalDeleteCommand): Observable<boolean> {
 

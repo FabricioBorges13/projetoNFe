@@ -6,11 +6,12 @@ import { NDDTitlebarModule } from '../../shared/ndd-ng-titlebar/component';
 import { NDDTabsbarModule } from '../../shared/ndd-ng-tabsbar/component';
 import { NotaFiscalRoutingModule } from './notafiscal-routing.module';
 import { NotaFiscalGridService, NotaFiscalService } from './shared/notafiscal.service';
+import { NotaFiscalAddComponent } from './notafiscal-add/notafiscal-add.component';
 
 @NgModule({
-    declarations: [NotaFiscalListComponent],
+    declarations: [NotaFiscalListComponent, NotaFiscalAddComponent],
     imports: [ SharedModule, GridModule, NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule ],
     exports: [],
     providers: [NotaFiscalGridService, NotaFiscalService],
 })
-export class NotaFiscalModule {}
+export class NotaFiscalModule { }
