@@ -39,6 +39,32 @@ export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
 }
 
 @Injectable()
+export class NotaFiscalService extends BaseService {
+    private api: string;
+    constructor(@Inject(CORE_CONFIG_TOKEN) config: ICoreConfig, public http: HttpClient) {
+        super(http);
+        this.api = `${config.apiEndpoint}api/notafiscal`;
+    }
+
+    public get(id: number): Observable<NotaFiscal> {
+        return this.http.get(`${this.api}/${id}`).map((response: NotaFiscal) => response);
+    }
+
+    public add(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
+        return this.http.post(this.api, notafiscal).map((response: boolean) => response);
+    }
+
+    public update(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
+        return this.http.put(this.api, notafiscal).map((response: boolean) => response);
+    }
+
+    public delete(notafiscal: NotaFiscalDeleteCommand): Observable<boolean> {
+
+        return this.deleteRequestWithBody(this.api, notafiscal);
+    }
+
+}
+@Injectable()
 export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
     constructor(
         private notaFiscalService: NotaFiscalService,
@@ -61,37 +87,3 @@ export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal>
     }
 }
 
-@Injectable()
-export class NotaFiscalService extends BaseService {
-    private api: string;
-    constructor(@Inject(CORE_CONFIG_TOKEN) config: ICoreConfig, public http: HttpClient) {
-        super(http);
-        this.api = `${config.apiEndpoint}api/notafiscal`;
-    }
-
-    public get(id: number): Observable<NotaFiscal> {
-        return this.http.get(`${this.api}/${id}`).map((response: NotaFiscal) => response);
-    }
-
-    public getByName(filterValue: string): Observable<NotaFiscal[]> {
-        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(NomeRazaoSocial), tolower('${filterValue}'))`;
-
-        return this.http
-            .get(`${this.api}?${queryStr}`)
-            .map((response: any) => response.items);
-    }
-
-    public add(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
-        return this.http.post(this.api, notafiscal).map((response: boolean) => response);
-    }
-
-    public update(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
-        return this.http.put(this.api, notafiscal).map((response: boolean) => response);
-    }
-
-    public delete(notafiscal: NotaFiscalDeleteCommand): Observable<boolean> {
-
-        return this.deleteRequestWithBody(this.api, notafiscal);
-    }
-
-}

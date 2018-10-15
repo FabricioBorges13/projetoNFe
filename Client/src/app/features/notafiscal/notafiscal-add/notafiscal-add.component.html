@@ -78,30 +78,38 @@
                 <div class="row feature-view__group">
                     <div class="col-md-6 col-sm-6 feature-view__body">
                         <div>
-                            <label class="form__label" for="emitente" [class.form__label--error]="form.get('emitente').hasError('required') && form.get('emitente').touched">Emitente
+                            <label class="form__label" for="emitente" [class.form__label--error]="form.get('emitente').hasError('required') && form.get('emitente').touched">Escolha o Emitente
                                 <span class="form__label form__label--required">*</span>
                             </label>
                         </div>
                         <div>
-                            <input formControlName="emitente" type="text" id="emitente" class="form__input"
-                                placeHolder="Escolha o emitente" maxlength="50" [class.form__input--error]="form.get('emitente').hasError('required') && form.get('emitente').touched">
-                            <span class="form__label form__label--error" *ngIf="form.get('emitente').hasError('required') && form.get('emitente').touched">
-                                Campo Obrigatório
-                            </span>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="emitente" id="emitente"
+                                [data]="data"
+                                [textField]="'name'"
+                                [valueField]="'name'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChangeEmitente($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('emitente').hasError('required')
+                        && form.get('emitente').touched">Campo Obrigatório</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 feature-view__body">
                         <div>
-                            <label class="form__label" for="transportador" [class.form__label--error]="form.get('transportador').hasError('required') && form.get('transportador').touched">Transportador
+                            <label class="form__label" for="transportador" [class.form__label--error]="form.get('transportador').hasError('required') && form.get('transportador').touched">Escolha o Transportador
                                 <span class="form__label form__label--required">*</span>
                             </label>
                         </div>
                         <div>
-                            <input formControlName="transportador" type="text" id="transportador" class="form__input"
-                            placeHolder="Escolha o transportador" maxlength="50" [class.form__input--error]="form.get('transportador').hasError('required') && form.get('transportador').touched">
-                            <span class="form__label form__label--error" *ngIf="form.get('transportador').hasError('required') && form.get('transportador').touched">
-                                Campo Obrigatório
-                            </span>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="transportador" id="transportador"
+                                [data]="data"
+                                [textField]="'name'"
+                                [valueField]="'name'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChangeTransportador($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('transportador').hasError('required')
+                        && form.get('transportador').touched">Campo Obrigatório</span>
                         </div>
                     </div>
                 </div>
@@ -109,16 +117,20 @@
                 <div class="row feature-view__group">
                     <div class="col-md-6 col-sm-6 feature-view__body">
                         <div>
-                            <label class="form__label" for="destinatario" [class.form__label--error]="form.get('destinatario').hasError('required') && form.get('destinatario').touched">Destinatário
+                            <label class="form__label" for="destinatario" [class.form__label--error]="form.get('destinatario').hasError('required') && form.get('destinatario').touched">Escolha o Destinatário
                                 <span class="form__label form__label--required">*</span>
                             </label>
                         </div>
                         <div>
-                            <input formControlName="destinatario" type="text" id="destinatario" class="form__input"
-                                placeHolder="Escolha o destinatario" maxlength="50" [class.form__input--error]="form.get('destinatario').hasError('required') && form.get('destinatario').touched">
-                            <span class="form__label form__label--error" *ngIf="form.get('destinatario').hasError('required') && form.get('destinatario').touched">
-                                Campo Obrigatório
-                            </span>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="destinatario" id="destinatario"
+                                [data]="data"
+                                [textField]="'name'"
+                                [valueField]="'name'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChange($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('destinatario').hasError('required')
+                        && form.get('destinatario').touched">Campo Obrigatório</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 feature-view__body">
