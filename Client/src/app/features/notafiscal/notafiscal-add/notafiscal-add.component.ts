@@ -1,9 +1,12 @@
+import { DestinatarioService } from './../../destinatario/shared/destinatario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotaFiscalService } from '../shared/notafiscal.service';
 import { Router } from '@angular/router';
 import { NotaFiscal, NotaFiscalDataCommand } from '../shared/notafiscal.model';
 import { Observable } from 'rxjs/Observable';
+import { EmitenteService } from '../../emitentes/shared/emitente.service';
+import { TransportadorService } from '../../transportador/shared/transportador.service';
 
 @Component({
     templateUrl: './notafiscal-add.component.html',
@@ -26,15 +29,26 @@ export class NotaFiscalAddComponent implements OnInit {
     });
     constructor(private service: NotaFiscalService,
         private fb: FormBuilder,
-        private router: Router) { }
+        private router: Router,
+        private serviceEmitente: EmitenteService,
+        private serviceTransportador: TransportadorService,
+        private serviceDestinatario: DestinatarioService ) { }
 
     public ngOnInit(): void {
         //
      }
-     public onAutoCompleteChange(value: string): any {
+     public onAutoCompleteChangeEmitente(value: string): any {
         Observable.of(value)
           .delay(this.delay)
-          .switchMap((value: any, index: number) => this.service.getByName(value))
+          .switchMap((value: any, index: number) => this.serviceEmitente.getByName(value))
+          .subscribe((response: any) => {
+            this.data = response;
+          });
+      }
+      public onAutoCompleteChangeTransportador(value: string): any {
+        Observable.of(value)
+          .delay(this.delay)
+          .switchMap((value: any, index: number) => this.serviceEmitente.getByName(value))
           .subscribe((response: any) => {
             this.data = response;
           });
@@ -51,6 +65,6 @@ export class NotaFiscalAddComponent implements OnInit {
         });
     }
     public redirect(): void {
-        this.router.navigate(['./vendas']);
+        this.router.navigate(['./']);
     }
 }
