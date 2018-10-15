@@ -14,11 +14,11 @@ export class NotaFiscal {
 
     public impostoDaNota: Imposto;
 
-    public emitente: Emitente;
+    public emitente: number;
 
-    public transportador: Transportador;
+    public transportador: number;
 
-    public destinatario: Destinatario;
+    public destinatario: number;
 
     public notaEmitida: boolean;
 
@@ -38,9 +38,12 @@ export class NotaFiscalDataCommand {
     public dataEntrada: Date;
     public valorIpi: number;
     public valorIcms: number;
-    public emitente: Emitente;
-    public transportador: Transportador;
-    public destinatario: Destinatario;
+    public emitente: number;
+    public emitenteNome: string;
+    public transportador: number;
+    public transportadorNome: string;
+    public destinatario: number;
+    public destinatarioNome: string;
     public valorDoFrete: number;
 
     constructor(notafiscal: any) {
@@ -49,12 +52,12 @@ export class NotaFiscalDataCommand {
         this.dataEntrada = notafiscal.dataEntrada;
         this.valorIpi = notafiscal.valorIpi;
         this.valorIcms = notafiscal.valorIcms;
-        this.emitente = new Emitente();
-        this.emitente.nomeRazaoSocial = notafiscal.emitente.nomeRazaoSocial;
-        this.transportador = new Transportador();
-        this.transportador.nomeRazaoSocial = notafiscal.transportador.nomeRazaoSocial;
-        this.destinatario = new Destinatario();
-        this.destinatario.nomeRazaoSocial = notafiscal.destinatario.nomeRazaoSocial;
+        this.emitente = notafiscal.emitente;
+        this.emitenteNome = notafiscal.emitenteNome;
+        this.transportador = notafiscal.transportador;
+        this.transportadorNome = notafiscal.transportadorNome;
+        this.destinatario = notafiscal.destinatario;
+        this.destinatarioNome = notafiscal.destinatarioNome;
         this.valorDoFrete = notafiscal.valorDoFrete;
     }
 }

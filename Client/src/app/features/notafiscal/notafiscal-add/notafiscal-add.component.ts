@@ -48,15 +48,30 @@ export class NotaFiscalAddComponent implements OnInit {
       public onAutoCompleteChangeTransportador(value: string): any {
         Observable.of(value)
           .delay(this.delay)
-          .switchMap((value: any, index: number) => this.serviceEmitente.getByName(value))
+          .switchMap((value: any, index: number) => this.serviceTransportador.getByName(value))
           .subscribe((response: any) => {
             this.data = response;
           });
       }
-    public onSave(): void {
+      public onAutoCompleteChangeDestinatario(value: string): any {
+        Observable.of(value)
+          .delay(this.delay)
+          .switchMap((value: any, index: number) => this.serviceDestinatario.getByName(value))
+          .subscribe((response: any) => {
+            this.data = response;
+          });
+      }
+    public submit(): void {
         this.isLoading = true;
         const notaFiscalAddCommand: NotaFiscalDataCommand = new NotaFiscalDataCommand(this.form.value);
+        notaFiscalAddCommand.emitente = this.form.value.emitente.id;
+        notaFiscalAddCommand.emitenteNome = this.form.value.emitente.nomeRazaoSocial;
 
+        notaFiscalAddCommand.transportador = this.form.value.transportador.id;
+        notaFiscalAddCommand.transportadorNome = this.form.value.transportador.nomeRazaoSocial;
+
+        notaFiscalAddCommand.destinatario = this.form.value.destinatario.id;
+        notaFiscalAddCommand.destinatarioNome = this.form.value.destinatario.nomeRazaoSocial;
         this.service.add(notaFiscalAddCommand)
         .take(1)
         .subscribe(() => {

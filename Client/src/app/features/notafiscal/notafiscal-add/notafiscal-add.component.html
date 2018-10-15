@@ -85,8 +85,8 @@
                         <div>
                             <kendo-dropdownlist class="form__input--dropdown" formControlName="emitente" id="emitente"
                                 [data]="data"
-                                [textField]="'name'"
-                                [valueField]="'name'"
+                                [textField]="'nomeRazaoSocial'"
+                                [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
                                 (filterChange)="onAutoCompleteChangeEmitente($event)">
                             </kendo-dropdownlist>
@@ -103,8 +103,8 @@
                         <div>
                             <kendo-dropdownlist class="form__input--dropdown" formControlName="transportador" id="transportador"
                                 [data]="data"
-                                [textField]="'name'"
-                                [valueField]="'name'"
+                                [textField]="'nomeRazaoSocial'"
+                                [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
                                 (filterChange)="onAutoCompleteChangeTransportador($event)">
                             </kendo-dropdownlist>
@@ -124,10 +124,10 @@
                         <div>
                             <kendo-dropdownlist class="form__input--dropdown" formControlName="destinatario" id="destinatario"
                                 [data]="data"
-                                [textField]="'name'"
-                                [valueField]="'name'"
+                                [textField]="'nomeRazaoSocial'"
+                                [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
-                                (filterChange)="onAutoCompleteChange($event)">
+                                (filterChange)="onAutoCompleteChangeDestinatario($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('destinatario').hasError('required')
                         && form.get('destinatario').touched">Campo Obrigatório</span>
