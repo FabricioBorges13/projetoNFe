@@ -22,9 +22,9 @@ export class NotaFiscalAddComponent implements OnInit {
         dataEntrada: ['', [Validators.required]],
         valorIpi: ['', [Validators.required]],
         valorIcms: ['', Validators.required],
-        emitente: ['', Validators.required],
-        transportador: ['', Validators.required],
-        destinatario: ['', Validators.required],
+        emitente: [null, Validators.required],
+        transportador: [null, Validators.required],
+        destinatario: [null, Validators.required],
         valorDoFrete: ['', Validators.required],
     });
     constructor(private service: NotaFiscalService,
@@ -48,15 +48,30 @@ export class NotaFiscalAddComponent implements OnInit {
       public onAutoCompleteChangeTransportador(value: string): any {
         Observable.of(value)
           .delay(this.delay)
-          .switchMap((value: any, index: number) => this.serviceEmitente.getByName(value))
+          .switchMap((value: any, index: number) => this.serviceTransportador.getByName(value))
           .subscribe((response: any) => {
             this.data = response;
           });
       }
-    public onSave(): void {
+      public onAutoCompleteChangeDestinatario(value: string): any {
+        Observable.of(value)
+          .delay(this.delay)
+          .switchMap((value: any, index: number) => this.serviceDestinatario.getByName(value))
+          .subscribe((response: any) => {
+            this.data = response;
+          });
+      }
+    public submit(): void {
         this.isLoading = true;
         const notaFiscalAddCommand: NotaFiscalDataCommand = new NotaFiscalDataCommand(this.form.value);
+        notaFiscalAddCommand.emitenteId = this.form.value.emitente.id;
+        notaFiscalAddCommand.emitenteNome = this.form.value.emitente.emitenteNome;
 
+        notaFiscalAddCommand.transportadorId = this.form.value.transportador.id;
+        notaFiscalAddCommand.transportadorNome = this.form.value.transportador.transportadorNome;
+
+        notaFiscalAddCommand.destinatarioId = this.form.value.destinatario.id;
+        notaFiscalAddCommand.destinatarioNome = this.form.value.destinatario.destinatarioNome;
         this.service.add(notaFiscalAddCommand)
         .take(1)
         .subscribe(() => {

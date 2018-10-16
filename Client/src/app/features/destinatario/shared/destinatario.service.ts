@@ -48,7 +48,13 @@ export class DestinatarioService extends BaseService {
         super(http);
         this.api = `${config.apiEndpoint}api/destinatario`;
     }
+    public getByName(filterValue: string): Observable<Destinatario[]> {
+        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(nomeRazaoSocial), tolower('${filterValue}'))`;
 
+        return this.http
+            .get(`${this.api}?${queryStr}`)
+            .map((response: any) => response.items);
+    }
     public delete(cmd: DestinatarioDeleteCommand): Observable<boolean> {
         return this.deleteRequestWithBody(this.api, cmd);
     }

@@ -49,6 +49,13 @@ export class TransportadorService extends BaseService {
         super(http);
         this.api = `${config.apiEndpoint}api/transportador`;
     }
+    public getByName(filterValue: string): Observable<Transportador[]> {
+        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(nomeRazaoSocial), tolower('${filterValue}'))`;
+
+        return this.http
+            .get(`${this.api}?${queryStr}`)
+            .map((response: any) => response.items);
+    }
 
     public get(id: number): Observable<Transportador> {
         return this.http.get(`${this.api}/${id}`).map((response: Transportador) => {
