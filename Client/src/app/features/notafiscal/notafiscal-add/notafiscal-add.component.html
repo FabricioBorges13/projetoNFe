@@ -88,7 +88,6 @@
                                 [textField]="'nomeRazaoSocial'"
                                 [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
-                                [valuePrimitive]="true"
                                 (filterChange)="onAutoCompleteChangeEmitente($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('emitente').hasError('required')
@@ -107,7 +106,6 @@
                                 [textField]="'nomeRazaoSocial'"
                                 [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
-                                [valuePrimitive]="true"
                                 (filterChange)="onAutoCompleteChangeTransportador($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('transportador').hasError('required')
@@ -129,7 +127,6 @@
                                 [textField]="'nomeRazaoSocial'"
                                 [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
-                                [valuePrimitive]="true"
                                 (filterChange)="onAutoCompleteChangeDestinatario($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('destinatario').hasError('required')
@@ -156,13 +153,10 @@
         </div>
     </form>
 </div>
-
-
 <div class="feature-view__footer">
-    <button class="ndd-ng-button ndd-ng-button--primary" (click)="submit()">Salvar</button>
+    <button class="ndd-ng-button ndd-ng-button--primary"  (click)="submit()">Salvar</button>
     <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Cancelar</button>
 </div>
-
 <div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
 <div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>
 </div>

@@ -22,9 +22,9 @@ export class NotaFiscalAddComponent implements OnInit {
         dataEntrada: ['', [Validators.required]],
         valorIpi: ['', [Validators.required]],
         valorIcms: ['', Validators.required],
-        emitente: ['', Validators.required],
-        transportador: ['', Validators.required],
-        destinatario: ['', Validators.required],
+        emitente: [null, Validators.required],
+        transportador: [null, Validators.required],
+        destinatario: [null, Validators.required],
         valorDoFrete: ['', Validators.required],
     });
     constructor(private service: NotaFiscalService,
@@ -64,14 +64,14 @@ export class NotaFiscalAddComponent implements OnInit {
     public submit(): void {
         this.isLoading = true;
         const notaFiscalAddCommand: NotaFiscalDataCommand = new NotaFiscalDataCommand(this.form.value);
-        notaFiscalAddCommand.emitente = this.form.value.emitente.id;
-        notaFiscalAddCommand.emitenteNome = this.form.value.emitente.nomeRazaoSocial;
+        notaFiscalAddCommand.emitenteId = this.form.value.emitente.id;
+        notaFiscalAddCommand.emitenteNome = this.form.value.emitente.emitenteNome;
 
-        notaFiscalAddCommand.transportador = this.form.value.transportador.id;
-        notaFiscalAddCommand.transportadorNome = this.form.value.transportador.nomeRazaoSocial;
+        notaFiscalAddCommand.transportadorId = this.form.value.transportador.id;
+        notaFiscalAddCommand.transportadorNome = this.form.value.transportador.transportadorNome;
 
-        notaFiscalAddCommand.destinatario = this.form.value.destinatario.id;
-        notaFiscalAddCommand.destinatarioNome = this.form.value.destinatario.nomeRazaoSocial;
+        notaFiscalAddCommand.destinatarioId = this.form.value.destinatario.id;
+        notaFiscalAddCommand.destinatarioNome = this.form.value.destinatario.destinatarioNome;
         this.service.add(notaFiscalAddCommand)
         .take(1)
         .subscribe(() => {
