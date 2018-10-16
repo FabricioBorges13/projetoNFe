@@ -33,8 +33,8 @@
                             </label>
                         </div>
                         <div>
-                            <input formControlName="dataEntrada" type="text" id="dataEntrada" class="form__input"
-                            placeholder="Ex.: 00/00/0000" maxlength="10" [class.form__input--error]="form.get('dataEntrada').hasError('required') && form.get('dataEntrada').touched">
+                            <input formControlName="dataEntrada" type="date" id="dataEntrada" class="form__input"
+                             [class.form__input--error]="form.get('dataEntrada').hasError('required') && form.get('dataEntrada').touched">
                             <span class="form__label form__label--error" *ngIf="form.get('dataEntrada').hasError('required') && form.get('dataEntrada').touched">
                                 Campo Obrigatório
                             </span>
@@ -88,6 +88,7 @@
                                 [textField]="'nomeRazaoSocial'"
                                 [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
+                                [valuePrimitive]="true"
                                 (filterChange)="onAutoCompleteChangeEmitente($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('emitente').hasError('required')
@@ -106,6 +107,7 @@
                                 [textField]="'nomeRazaoSocial'"
                                 [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
+                                [valuePrimitive]="true"
                                 (filterChange)="onAutoCompleteChangeTransportador($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('transportador').hasError('required')
@@ -127,6 +129,7 @@
                                 [textField]="'nomeRazaoSocial'"
                                 [valueField]="'nomeRazaoSocial'"
                                 [filterable]="true"
+                                [valuePrimitive]="true"
                                 (filterChange)="onAutoCompleteChangeDestinatario($event)">
                             </kendo-dropdownlist>
                             <span class="form__label--error" *ngIf="form.get('destinatario').hasError('required')
