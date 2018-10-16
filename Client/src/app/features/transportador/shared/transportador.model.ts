@@ -3,7 +3,7 @@ export class Transportador {
     public id: number;
     public nomeRazaoSocial: string;
     public inscricaoEstadual: string;
-    public numeroDoDocumento: string;
+    public numeroDocumento: string;
     public responsabilidadeFrete: boolean;
     public endereco: Endereco;
 }
