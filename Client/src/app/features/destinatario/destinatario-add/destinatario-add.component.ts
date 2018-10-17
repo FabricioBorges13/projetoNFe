@@ -15,7 +15,11 @@ export class DestinatarioAddComponent implements OnInit {
     public formModel: FormGroup = this.fb.group({
         isEmpresa: [true],
         nomeRazaoSocial: ['', Validators.required],
-        Endereco: ['', Validators.required],
+        logradouro: ['', Validators.required],
+        bairro: ['', Validators.required],
+        numero: ['', Validators.required],
+        municipio: ['', Validators.required],
+        estado: ['', Validators.required],
     });
 
     public formModelEmpresa: FormGroup = this.fb.group({
@@ -25,7 +29,7 @@ export class DestinatarioAddComponent implements OnInit {
     });
 
     public formModelPessoa: FormGroup = this.fb.group({
-        cpf: ['', Validators.required],
+        numeroDeDocumento: ['', Validators.required],
     });
 
     constructor(private fb: FormBuilder,
@@ -36,7 +40,7 @@ export class DestinatarioAddComponent implements OnInit {
         this.formModel.addControl('empresa', this.formModelEmpresa);
         this.formModel.updateValueAndValidity();
         this.formModel.get('isEmpresa').valueChanges.subscribe((isEmpresa: boolean) => {
-            //
+            isEmpresa = !isEmpresa;
         });
     }
 
@@ -54,4 +58,5 @@ export class DestinatarioAddComponent implements OnInit {
         this.router.navigate(['./../'],
             { relativeTo: this.route });
     }
+
 }

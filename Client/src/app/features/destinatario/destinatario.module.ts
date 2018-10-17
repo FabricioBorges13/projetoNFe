@@ -1,3 +1,4 @@
+import { UiSwitchModule } from 'angular2-ui-switch';
 import { DestinatarioViewComponent } from './destinatario-view/destinatario-view.component';
 import { DestinatarioListComponent } from './destinatario-list/destinatario-list.component';
 import { DestinatarioEditComponent } from './destinatario-view/destinatario-edit/destinatario-edit.component';
@@ -17,13 +18,15 @@ import { NgModule } from '@angular/core';
         DestinatarioDetailComponent,
         DestinatarioEditComponent,
         DestinatarioListComponent,
-        DestinatarioViewComponent],
+        DestinatarioViewComponent,
+        ],
     imports: [
         DestinatarioRoutingModule,
         SharedModule,
         GridModule,
         NDDTitlebarModule,
         NDDTabsbarModule,
+        UiSwitchModule,
     ],
     exports: [],
     providers: [DestinatarioService, DestinatarioResolveService, DestinatarioGridService],

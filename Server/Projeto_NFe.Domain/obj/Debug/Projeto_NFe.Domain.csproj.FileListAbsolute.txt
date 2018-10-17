@@ -12,3 +12,9 @@ C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain
 C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
 C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
 C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.pdb
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb
