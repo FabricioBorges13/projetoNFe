@@ -33,8 +33,6 @@ namespace Projeto_NFe.Controller.Tests.Initializer
             };
         }
 
-
-
         protected ODataQueryOptions<T> GetOdataQueryOptions<T>(ApiController controller) where T : class
         {
             // Criamos um request para simular uma chamada HTTP para os testes

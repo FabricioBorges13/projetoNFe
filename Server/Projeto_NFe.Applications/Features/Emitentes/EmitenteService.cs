@@ -55,9 +55,9 @@ namespace Projeto_NFe.Applications.Features.Emitentes
             return _repository.GetById(id);
         }
 
-        public IQueryable<Emitente> GetAll(int quantidade = 0)
+        public IQueryable<Emitente> GetAll()
         {
-            return _repository.GetAll(quantidade);
+            return _repository.GetAll();
         }
     }
 }

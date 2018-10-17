@@ -4,14 +4,9 @@ using Projeto_Nfe.API.Controllers.Comum;
 using Projeto_Nfe.API.Filters;
 using Projeto_NFe.Applications.Features.Destinatarios;
 using Projeto_NFe.Applications.Features.Destinatarios.Commands;
-using Projeto_NFe.Applications.Features.Destinatarios.Querries;
 using Projeto_NFe.Applications.Features.Destinatarios.ViewModels;
 using Projeto_NFe.Domain.Features.Destinatarios;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 namespace Projeto_Nfe.API.Controllers.Destinatarios
 {

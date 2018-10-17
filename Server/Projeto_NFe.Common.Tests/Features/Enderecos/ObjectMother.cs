@@ -6,7 +6,7 @@ namespace Projeto_NFe.Common.Tests.Features
 {
     public static partial class ObjectMother
     {
-        public static Endereco destinatarioValido
+        public static Endereco enderecoValido
         {
             get
             {
@@ -22,45 +22,6 @@ namespace Projeto_NFe.Common.Tests.Features
             }
         }
 
-        public static List<Endereco> DefaultListDeEnderecos
-        {
-            get
-            {
-                List<Endereco> destinatarioList = new List<Endereco>();
-
-                destinatarioList.Add(new Endereco()
-                {
-                    Bairro = "Habitação",
-                    Logradouro = "Rua Perdeu Playboy",
-                    Estado = "SC",
-                    Municipio = "Lages",
-                    Pais = "Brasil",
-                    Numero = 22,
-                });
-
-                destinatarioList.Add(new Endereco()
-                {
-                    Bairro = "São José",
-                    Logradouro = "Rua Cachaça",
-                    Estado = "SC",
-                    Municipio = "Lages",
-                    Pais = "Brasil",
-                    Numero = 22,
-                });
-
-                destinatarioList.Add(new Endereco()
-                {
-                    Bairro = "Pedro",
-                    Logradouro = "Rua Jão",
-                    Estado = "SC",
-                    Municipio = "Lages",
-                    Pais = "Brasil",
-                    Numero = 22,
-                });
-
-                return destinatarioList;
-            }
-        }
 
         public static EnderecoAddCommand EnderecoValidoParaRegistrar()
         {
