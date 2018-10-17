@@ -19,6 +19,8 @@ import { TransportadorService } from '../transportador/shared/transportador.serv
     declarations: [NotaFiscalListComponent, NotaFiscalAddComponent, NotaFiscalDetailComponent, NotaFiscalViewComponent],
     imports: [ SharedModule, GridModule, NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule, DropDownsModule ],
     exports: [],
-    providers: [NotaFiscalGridService, NotaFiscalService, EmitenteService, TransportadorService, DestinatarioService],
+    providers: [NotaFiscalGridService, NotaFiscalService,
+        EmitenteService, TransportadorService,
+        sDestinatarioService, NotaFiscalResolveService],
 })
 export class NotaFiscalModule {}
