@@ -33,4 +33,9 @@ export class TransportadorDetailComponent implements OnInit, OnDestroy {
     public onEdit(): void {
         this.router.navigate(['./', `editar`], { relativeTo: this.route });
     }
+
+    public redirect(): void {
+        this.router.navigate(['./transportador']);
+    }
+
 }

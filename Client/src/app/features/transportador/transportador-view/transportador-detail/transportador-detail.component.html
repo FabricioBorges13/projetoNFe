@@ -24,7 +24,7 @@
                 </div>
             </div>
            
-            <div class="row feature-view__group">
+            <div class="row feature-view__group" *ngIf="transportador?.inscricaoEstadual">
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-6 feature-view__body">
@@ -39,7 +39,25 @@
                         </div>
                         <div class="col-sm-6">
                             <div>
-                                <span class="feature-view__label">CPF/CNPJ</span>
+                                <span class="feature-view__label">CNPJ</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ transportador?.numeroDocumento }}" class="feature-view__value">
+                                    {{ transportador?.numeroDocumento }}
+                                </span>
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="row feature-view__group" *ngIf="!transportador?.inscricaoEstadual">
+                <div class="col-sm-12">
+                    <div class="row">                       
+                        <div class="col-sm-6">
+                            <div>
+                                <span class="feature-view__label">CPF</span>
                             </div>
                             <div class="truncate">
                                 <span title="{{ transportador?.numeroDocumento }}" class="feature-view__value">

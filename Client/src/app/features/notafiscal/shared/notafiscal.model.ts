@@ -5,14 +5,18 @@ import { Transportador } from '../../transportador/shared/transportador.model';
 import { Destinatario } from '../../destinatario/shared/destinatario.model';
 
 export class NotaFiscal {
-    public id: number;
+    public id?: number;
     public naturezaOperacao: string;
     public dataEntrada: Date;
+
+    public emitente: number;
+
+    public transportador: number;
+
+    public destinatario: number;
+
     public produtos: Produto;
     public impostoDaNota: Imposto;
-    public emitente: Emitente;
-    public transportador: Transportador;
-    public destinatario: Destinatario;
     public notaEmitida: boolean;
     public dataEmissao: Date;
     public chaveAcesso: string;
@@ -26,9 +30,12 @@ export class NotaFiscalDataCommand {
     public dataEntrada: Date;
     public valorIpi: number;
     public valorIcms: number;
-    public emitente: Emitente;
-    public transportador: Transportador;
-    public destinatario: Destinatario;
+    public emitenteId: number;
+    public emitenteNome: string;
+    public transportadorId: number;
+    public transportadorNome: string;
+    public destinatarioId: number;
+    public destinatarioNome: string;
     public valorDoFrete: number;
 
     constructor(notafiscal: any) {
@@ -37,12 +44,16 @@ export class NotaFiscalDataCommand {
         this.dataEntrada = notafiscal.dataEntrada;
         this.valorIpi = notafiscal.valorIpi;
         this.valorIcms = notafiscal.valorIcms;
-        this.emitente = new Emitente();
-        this.emitente.nomeRazaoSocial = notafiscal.emitente.nomeRazaoSocial;
-        this.transportador = new Transportador();
-        this.transportador.nomeRazaoSocial = notafiscal.transportador.nomeRazaoSocial;
-        this.destinatario = new Destinatario();
-        this.destinatario.nomeRazaoSocial = notafiscal.destinatario.nomeRazaoSocial;
+
+        this.emitenteId = notafiscal.emitenteId;
+        this.emitenteNome = notafiscal.emitenteNome;
+
+        this.transportadorId = notafiscal.transportadorId;
+        this.transportadorNome = notafiscal.transportadorNome;
+
+        this.destinatarioId = notafiscal.destinatarioId;
+        this.destinatarioNome = notafiscal.destinatarioNome;
+
         this.valorDoFrete = notafiscal.valorDoFrete;
     }
 }

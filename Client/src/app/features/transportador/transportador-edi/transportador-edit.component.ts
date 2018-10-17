@@ -38,7 +38,7 @@ export class TransportadorEditComponent implements OnInit, OnDestroy {
                 this.form.patchValue({
                     nomeRazaoSocial: transportador.nomeRazaoSocial,
                     inscricaoEstadual: transportador.inscricaoEstadual,
-                    numeroDocumento: transportador.numeroDoDocumento,
+                    numeroDocumento: transportador.numeroDocumento,
                     logradouro: transportador.endereco.logradouro,
                     numero: transportador.endereco.numero,
                     bairro: transportador.endereco.bairro,
