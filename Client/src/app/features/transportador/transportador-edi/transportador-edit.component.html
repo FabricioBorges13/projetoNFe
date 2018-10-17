@@ -21,7 +21,7 @@
                     Field is required
                 </span>
             </div>
-            <div class="col-md-6 col-sm-6 feature-view__body">
+            <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="transportador?.inscricaoEstadual">
                 <div>
                     <span class="form__label" [class.form__label--error]="form.get('inscricaoEstadual').touched 
                                                     && form.get('inscricaoEstadual').hasError('required')">Inscrição Estadual
@@ -34,10 +34,24 @@
                     Field is required
                 </span>
             </div>
-            <div class="col-md-6 col-sm-6 feature-view__body">
+            <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="transportador?.inscricaoEstadual">
                 <div>
-                    <span class="form__label" [class.form__label--error]="form.get('numeroDoDocumento').touched 
-                                            && form.get('numeroDocumento').hasError('required')">CPF/CNPJ
+                    <span class="form__label" [class.form__label--error]="form.get('numeroDocumento').touched 
+                                            && form.get('numeroDocumento').hasError('required')">CNPJ
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('numeroDocumento').touched && form.get('numeroDocumento').hasError('required')"
+                    autocomplete="off" type="text" formControlName="numeroDocumento"  id="numeroDoDocumento">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDocumento').touched && form.get('numeroDocumento').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+
+            <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="!transportador?.inscricaoEstadual">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('numeroDocumento').touched 
+                                            && form.get('numeroDocumento').hasError('required')">CPF
                         <span class="form__label--required">*</span>
                     </span>
                 </div>

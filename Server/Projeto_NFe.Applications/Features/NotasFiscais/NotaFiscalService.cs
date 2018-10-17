@@ -55,7 +55,7 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
             var isRemovedAll = true;
             foreach (var notaFiscalId in notaFiscais.NotaFiscalIds)
             {
-                var isRemoved = _destinatarioRepository.Delete(notaFiscalId);
+                var isRemoved = _notaFiscalRepository.Delete(notaFiscalId);
                 // Aqui poderia dar o tramento adequado, armazenado quais ids foram removidos
                 // e quais não forma removidos (e buscar o porquê). 
                 // Como é somente um exemplo, vamos somente retornar false (que não foi totalmente concluído)

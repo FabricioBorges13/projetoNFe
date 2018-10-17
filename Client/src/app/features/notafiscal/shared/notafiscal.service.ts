@@ -6,10 +6,14 @@ import { ICoreConfig, CORE_CONFIG_TOKEN } from '../../../core/core.config';
 import { State, toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BaseService } from '../../../core/utils';
-import { NotaFiscal, NotaFiscalDeleteCommand } from './notafiscal.model';
+import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand } from './notafiscal.model';
+import { AbstractResolveService } from '../../../core/utils/abstract-resolve.service';
+import { Router } from '@angular/router';
+import { NDDBreadcrumbService } from '../../../shared/ndd-ng-breadcrumb';
 
 @Injectable()
 export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
+
     public loading: boolean;
 
     constructor(
@@ -37,31 +41,22 @@ export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{
 @Injectable()
 export class NotaFiscalService extends BaseService {
     private api: string;
-
     constructor(@Inject(CORE_CONFIG_TOKEN) config: ICoreConfig, public http: HttpClient) {
         super(http);
-        this.api = `${config.apiEndpoint}api/emitente`;
+        this.api = `${config.apiEndpoint}api/notafiscal`;
     }
 
     public get(id: number): Observable<NotaFiscal> {
         return this.http.get(`${this.api}/${id}`).map((response: NotaFiscal) => response);
     }
-/*
-    public getByName(filterValue: string): Observable<Emitente[]> {
-        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(NomeRazaoSocial), tolower('${filterValue}'))`;
 
-        return this.http
-            .get(`${this.api}?${queryStr}`)
-            .map((response: any) => response.items);
+    public add(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
+        return this.http.post(this.api, notafiscal).map((response: boolean) => response);
     }
 
-    public add(emitente: EmitenteDataCommand): Observable<boolean> {
-        return this.http.post(this.api, emitente).map((response: boolean) => response);
+    public update(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
+        return this.http.put(this.api, notafiscal).map((response: boolean) => response);
     }
-
-    public update(emitente: EmitenteDataCommand): Observable<boolean> {
-        return this.http.put(this.api, emitente).map((response: boolean) => response);
-    }*/
 
     public delete(notafiscal: NotaFiscalDeleteCommand): Observable<boolean> {
 
@@ -69,3 +64,26 @@ export class NotaFiscalService extends BaseService {
     }
 
 }
+@Injectable()
+export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
+    constructor(
+        private notaFiscalService: NotaFiscalService,
+        private breadcrumbService: NDDBreadcrumbService,
+        router: Router) {
+        super(router);
+        this.paramsProperty = 'notaFiscalId';
+    }
+    protected loadEntity(notaFiscalId: number): Observable<NotaFiscal> {
+        return this.notaFiscalService
+            .get(notaFiscalId)
+            .take(1)
+            .do((notaFiscal: NotaFiscal) => {
+                this.breadcrumbService.setMetadata({
+                    id: 'notaFiscal',
+                    label: notaFiscal.chaveAcesso,
+                    sizeLimit: true,
+                });
+            });
+    }
+}
+

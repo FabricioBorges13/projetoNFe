@@ -6,7 +6,6 @@ import { DestinatarioUpdateCommand, Destinatario } from './../../shared/destinat
 import { OnInit, Component } from '@angular/core';
 
 @Component({
-    selector: 'destinatario-edit',
     templateUrl: './destinatario-edit.component.html',
 })
 export class DestinatarioEditComponent implements OnInit {
@@ -37,8 +36,7 @@ export class DestinatarioEditComponent implements OnInit {
                     id: destinatario.id,
                     nomeRazaoSocial: destinatario.nomeRazaoSocial,
                     inscricaoEstadual: destinatario.inscricaoEstadual,
-                    numeroDeDocumento: destinatario.numeroDeDocumento,
-                    endereco: destinatario.endereco
+                    numeroDeDocumento: destinatario.numeroDoDocumento,
                 });
             });
     }

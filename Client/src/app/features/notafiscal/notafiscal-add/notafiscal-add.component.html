@@ -1,0 +1,162 @@
+<div class="feature-view"> 
+<ndd-ng-titlebar titlebarIcon="ndd-font ndd-font-file-invoice-dollar-solid" [titlebarTitle]="title" [titlebarRouterToReturnOnClose]="returnRoute"></ndd-ng-titlebar>
+<div class="feature-view__content">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+        <div class="row">
+            <!-- #region Coluna 1 -->
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="feature-view__title">Dados Cadastrais</span>
+                    </div>
+                </div>
+                <div class="row feature-view__group">
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="naturezaOperacao" [class.form__label--error]="form.get('naturezaOperacao').hasError('required') && form.get('naturezaOperacao').touched">Natureza de Operação
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input formControlName="naturezaOperacao" type="text" id="naturezaOperacao" class="form__input" placeHolder="Digite sua natureza de Operacao"
+                            maxlength="50" [class.form__input--error]="form.get('naturezaOperacao').hasError('required') && form.get('naturezaOperacao').touched">
+                            <span class="form__label form__label--error" *ngIf="form.get('naturezaOperacao').hasError('required') && form.get('naturezaOperacao').touched">
+                                Campo Obrigatório
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="dataEntrada" [class.form__label--error]="form.get('dataEntrada').hasError('required') && form.get('dataEntrada').touched">Data de Entrada
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input formControlName="dataEntrada" type="date" id="dataEntrada" class="form__input"
+                             [class.form__input--error]="form.get('dataEntrada').hasError('required') && form.get('dataEntrada').touched">
+                            <span class="form__label form__label--error" *ngIf="form.get('dataEntrada').hasError('required') && form.get('dataEntrada').touched">
+                                Campo Obrigatório
+                            </span>
+                            <span class="form__label form__label--error" *ngIf="!form.get('dataEntrada').hasError('required') && form.hasError('invalid')">
+                                Número de CNPJ incorreto
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row feature-view__group">
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="valorIpi" [class.form__label--error]="form.get('valorIpi').hasError('required') && form.get('valorIpi').touched">Valor IPI
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input formControlName="valorIpi" type="text" id="valorIpi" class="form__input"
+                                placeHolder="Ex.:000.00" maxlength="6" [class.form__input--error]="form.get('valorIpi').hasError('required') && form.get('valorIpi').touched">
+                            <span class="form__label form__label--error" *ngIf="form.get('valorIpi').hasError('required') && form.get('valorIpi').touched">
+                                Campo Obrigatório
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="valorIcms" [class.form__label--error]="form.get('valorIcms').hasError('required') && form.get('valorIcms').touched">Valor ICMS
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input formControlName="valorIcms" type="text" id="valorIcms" class="form__input"
+                            placeHolder="Ex.:000.00" maxlength="6" [class.form__input--error]="form.get('valorIcms').hasError('required') && form.get('valorIcms').touched">
+                            <span class="form__label form__label--error" *ngIf="form.get('valorIcms').hasError('required') && form.get('valorIcms').touched">
+                                Campo Obrigatório
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row feature-view__group">
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="emitente" [class.form__label--error]="form.get('emitente').hasError('required') && form.get('emitente').touched">Escolha o Emitente
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="emitente" id="emitente"
+                                [data]="data"
+                                [textField]="'nomeRazaoSocial'"
+                                [valueField]="'nomeRazaoSocial'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChangeEmitente($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('emitente').hasError('required')
+                        && form.get('emitente').touched">Campo Obrigatório</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="transportador" [class.form__label--error]="form.get('transportador').hasError('required') && form.get('transportador').touched">Escolha o Transportador
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="transportador" id="transportador"
+                                [data]="data"
+                                [textField]="'nomeRazaoSocial'"
+                                [valueField]="'nomeRazaoSocial'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChangeTransportador($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('transportador').hasError('required')
+                        && form.get('transportador').touched">Campo Obrigatório</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row feature-view__group">
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="destinatario" [class.form__label--error]="form.get('destinatario').hasError('required') && form.get('destinatario').touched">Escolha o Destinatário
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="destinatario" id="destinatario"
+                                [data]="data"
+                                [textField]="'nomeRazaoSocial'"
+                                [valueField]="'nomeRazaoSocial'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChangeDestinatario($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('destinatario').hasError('required')
+                        && form.get('destinatario').touched">Campo Obrigatório</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 feature-view__body">
+                        <div>
+                            <label class="form__label" for="valorDoFrete" [class.form__label--error]="form.get('valorDoFrete').hasError('required') && form.get('valorDoFrete').touched">Valor do Frete
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input formControlName="valorDoFrete" type="text" id="valorDoFrete" class="form__input"
+                            placeHolder="Ex.:000.00" maxlength="6" [class.form__input--error]="form.get('valorDoFrete').hasError('required') && form.get('valorDoFrete').touched">
+                            <span class="form__label form__label--error" *ngIf="form.get('valorDoFrete').hasError('required') && form.get('valorDoFrete').touched">
+                                Campo Obrigatório
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+<div class="feature-view__footer">
+    <button class="ndd-ng-button ndd-ng-button--primary"  (click)="submit()">Salvar</button>
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Cancelar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>
+</div>

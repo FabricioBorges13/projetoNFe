@@ -51,7 +51,7 @@ export class EmitenteService extends BaseService {
     }
 
     public getByName(filterValue: string): Observable<Emitente[]> {
-        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(NomeRazaoSocial), tolower('${filterValue}'))`;
+        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(nomeRazaoSocial), tolower('${filterValue}'))`;
 
         return this.http
             .get(`${this.api}?${queryStr}`)
