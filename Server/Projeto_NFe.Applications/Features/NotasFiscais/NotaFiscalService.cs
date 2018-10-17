@@ -90,7 +90,10 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
         public IQueryable<Produto> GetListaDeProdutoDaNotaFiscal(long id)
         {
             var notaFiscalGet = _notaFiscalRepository.GetById(id);
-            
+            if (notaFiscalGet == null)
+            {
+                throw new Exception();
+            }
             return notaFiscalGet.Produtos.AsQueryable();
         }
 

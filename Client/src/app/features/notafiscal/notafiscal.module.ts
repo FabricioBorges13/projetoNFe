@@ -21,6 +21,6 @@ import { TransportadorService } from '../transportador/shared/transportador.serv
     exports: [],
     providers: [NotaFiscalGridService, NotaFiscalService,
         EmitenteService, TransportadorService,
-        sDestinatarioService, NotaFiscalResolveService],
+        DestinatarioService, NotaFiscalResolveService],
 })
 export class NotaFiscalModule {}

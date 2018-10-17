@@ -1,20 +1,13 @@
 import { Produto } from '../../produto/shared/produto.model';
 import { Imposto } from '../../imposto/imposto.model';
-import { Emitente } from '../../emitentes/shared/emitente.model';
-import { Transportador } from '../../transportador/shared/transportador.model';
-import { Destinatario } from '../../destinatario/shared/destinatario.model';
 
 export class NotaFiscal {
     public id?: number;
     public naturezaOperacao: string;
     public dataEntrada: Date;
-
     public emitente: number;
-
     public transportador: number;
-
     public destinatario: number;
-
     public produtos: Produto;
     public impostoDaNota: Imposto;
     public notaEmitida: boolean;
@@ -24,6 +17,7 @@ export class NotaFiscal {
     public valorTotalDosProdutos: number;
     public valorTotalDaNota: number;
 }
+
 export class NotaFiscalDataCommand {
     public id?: number;
     public naturezaOperacao: string;
