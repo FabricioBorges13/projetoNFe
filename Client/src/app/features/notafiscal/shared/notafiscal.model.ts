@@ -1,28 +1,44 @@
 import { Produto } from '../../produto/shared/produto.model';
 import { Imposto } from '../../imposto/imposto.model';
-import { Emitente } from '../../emitentes/shared/emitente.model';
-import { Transportador } from '../../transportador/shared/transportador.model';
-import { Destinatario } from '../../destinatario/shared/destinatario.model';
 
 export class NotaFiscal {
     public id?: number;
     public naturezaOperacao: string;
-
     public dataEntrada: Date;
-
     public emitente: number;
-
     public transportador: number;
-
     public destinatario: number;
-    public produto: Produto[];
-
+    public produtos: Produto;
+    public impostoDaNota: Imposto;
+    public notaEmitida: boolean;
+    public dataEmissao: Date;
+    public chaveAcesso: string;
     public valorDoFrete: number;
-
     public valorTotalDosProdutos: number;
-
     public valorTotalDaNota: number;
 }
+
+export class ProdutosInNotaFiscal{
+
+    public id?: number;
+    public codigoProduto: string;
+    public descricao: string;
+    public valorUnitario: number;
+    constructor(produtoInNotaFiscal: any) {
+        this.id = produtoInNotaFiscal.id;
+        this.codigoProduto = produtoInNotaFiscal.codigoProduto;
+        this.descricao = produtoInNotaFiscal.descricao;
+        this.valorUnitario = produtoInNotaFiscal.valorUnitario;
+    }
+}
+
+export class ListProdutosInNotaFiscal{
+    public items: ProdutosInNotaFiscal[];
+    constructor(listProdutos: any) {
+        this.items = listProdutos.items;
+    }
+}
+
 export class NotaFiscalDataCommand {
     public id?: number;
     public naturezaOperacao: string;

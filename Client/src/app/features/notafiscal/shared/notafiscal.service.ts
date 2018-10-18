@@ -6,7 +6,7 @@ import { ICoreConfig, CORE_CONFIG_TOKEN } from '../../../core/core.config';
 import { State, toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BaseService } from '../../../core/utils';
-import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand, NotaFiscalPatchCommand } from './notafiscal.model';
+import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand, ListProdutosInNotaFiscal } from './notafiscal.model';
 import { AbstractResolveService } from '../../../core/utils/abstract-resolve.service';
 import { Router } from '@angular/router';
 import { NDDBreadcrumbService } from '../../../shared/ndd-ng-breadcrumb';
@@ -51,6 +51,10 @@ export class NotaFiscalService extends BaseService {
         return this.http.get(`${this.api}/${id}`).map((response: NotaFiscal) => response);
     }
 
+    public getListOfProducts(id: number): Observable<ListProdutosInNotaFiscal> {
+        return this.http.get(`${this.api}/${id}/produtos`).map((response: ListProdutosInNotaFiscal) => response);
+    }
+
     public add(notafiscal: NotaFiscalDataCommand): Observable<boolean> {
         return this.http.post(this.api, notafiscal).map((response: boolean) => response);
     }
@@ -67,8 +71,8 @@ export class NotaFiscalService extends BaseService {
 
         return this.deleteRequestWithBody(this.api, notafiscal);
     }
-
 }
+
 @Injectable()
 export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal> {
     constructor(
@@ -76,7 +80,7 @@ export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal>
         private breadcrumbService: NDDBreadcrumbService,
         router: Router) {
         super(router);
-        this.paramsProperty = 'notaFiscalId';
+        this.paramsProperty = 'notafiscalId';
     }
     protected loadEntity(notaFiscalId: number): Observable<NotaFiscal> {
         return this.notaFiscalService
@@ -92,3 +96,25 @@ export class NotaFiscalResolveService extends AbstractResolveService<NotaFiscal>
     }
 }
 
+@Injectable()
+export class ListProdutosInNotaFiscalResolveService extends AbstractResolveService<ListProdutosInNotaFiscal> {
+    constructor(
+        private notaFiscalService: NotaFiscalService,
+        private breadcrumbService: NDDBreadcrumbService,
+        router: Router) {
+        super(router);
+        this.paramsProperty = 'notafiscalId';
+    }
+    protected loadEntity(notaFiscalId: number): Observable<ListProdutosInNotaFiscal> {
+        return this.notaFiscalService
+            .getListOfProducts(notaFiscalId)
+            .take(1)
+            .do((listProdutosInNotaFiscal: ListProdutosInNotaFiscal) => {
+                this.breadcrumbService.setMetadata({
+                    id: 'notaFiscal',
+                    label: listProdutosInNotaFiscal.items.length.toString(),
+                    sizeLimit: true,
+                });
+            });
+    }
+}
