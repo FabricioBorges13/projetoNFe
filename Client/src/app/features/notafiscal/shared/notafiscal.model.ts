@@ -18,6 +18,27 @@ export class NotaFiscal {
     public valorTotalDaNota: number;
 }
 
+export class ProdutosInNotaFiscal{
+
+    public id?: number;
+    public codigoProduto: string;
+    public descricao: string;
+    public valorUnitario: number;
+    constructor(produtoInNotaFiscal: any) {
+        this.id = produtoInNotaFiscal.id;
+        this.codigoProduto = produtoInNotaFiscal.codigoProduto;
+        this.descricao = produtoInNotaFiscal.descricao;
+        this.valorUnitario = produtoInNotaFiscal.valorUnitario;
+    }
+}
+
+export class ListProdutosInNotaFiscal{
+    public items: ProdutosInNotaFiscal[];
+    constructor(listProdutos: any) {
+        this.items = listProdutos.items;
+    }
+}
+
 export class NotaFiscalDataCommand {
     public id?: number;
     public naturezaOperacao: string;

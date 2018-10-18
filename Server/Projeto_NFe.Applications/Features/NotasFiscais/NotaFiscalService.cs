@@ -77,6 +77,8 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
         {
 
             var notaFiscalGet = _notaFiscalRepository.GetById(id);
+            if (notaFiscalGet == null)
+                throw new NotFoundException();
             notaFiscalGet.Destinatario = _destinatarioRepository.GetById((long)notaFiscalGet.DestinatarioId);
             notaFiscalGet.Transportador= _transportadorRepository.GetById((long)notaFiscalGet.TransportadorId);
             notaFiscalGet.Emitente = _emitenteRepository.GetById((long)notaFiscalGet.EmitenteId);
