@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoMapper;
 using Projeto_NFe.Applications.Features.NotasFiscais.Commands;
+using Projeto_NFe.Domain.Base.Exceptions;
 using Projeto_NFe.Domain.Features.Destinatarios;
 using Projeto_NFe.Domain.Features.Emitentes;
 using Projeto_NFe.Domain.Features.NotasFiscais;
@@ -86,9 +87,8 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
         {
             var notaFiscalGet = _notaFiscalRepository.GetById(id);
             if (notaFiscalGet == null)
-            {
-                throw new Exception();
-            }
+                throw new NotFoundException();
+
             return notaFiscalGet.Produtos.AsQueryable();
         }
 
