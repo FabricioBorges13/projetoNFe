@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoMapper;
 using Projeto_NFe.Applications.Features.NotasFiscais.Commands;
+using Projeto_NFe.Domain.Base.Exceptions;
 using Projeto_NFe.Domain.Features.Destinatarios;
 using Projeto_NFe.Domain.Features.Emitentes;
 using Projeto_NFe.Domain.Features.NotasFiscais;
@@ -76,6 +77,8 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
         {
 
             var notaFiscalGet = _notaFiscalRepository.GetById(id);
+            if (notaFiscalGet == null)
+                throw new NotFoundException();
             notaFiscalGet.Destinatario = _destinatarioRepository.GetById((long)notaFiscalGet.DestinatarioId);
             notaFiscalGet.Transportador= _transportadorRepository.GetById((long)notaFiscalGet.TransportadorId);
             notaFiscalGet.Emitente = _emitenteRepository.GetById((long)notaFiscalGet.EmitenteId);
@@ -85,7 +88,9 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
         public IQueryable<Produto> GetListaDeProdutoDaNotaFiscal(long id)
         {
             var notaFiscalGet = _notaFiscalRepository.GetById(id);
-            
+            if (notaFiscalGet == null)
+                throw new NotFoundException();
+
             return notaFiscalGet.Produtos.AsQueryable();
         }
 

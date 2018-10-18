@@ -86,6 +86,7 @@
     <Compile Include="Features\Destinatarios\IDestinatarioService.cs" />
     <Compile Include="Features\Destinatarios\Mapping\MappingProfile.cs" />
     <Compile Include="Features\Destinatarios\ViewModels\DestinatarioViewModel.cs" />
+    <Compile Include="Features\Produtos\ViewModels\ProdutoInNotaFiscalViewModel.cs" />
     <Compile Include="Features\Transportadores\ViewModel\TransportadoraNaNotaFiscalViewModel.cs" />
     <Compile Include="Features\Produtos\Commands\ProdutoAddCommand.cs" />
     <Compile Include="Features\Produtos\Commands\ProdutoDeleteCommand.cs" />
