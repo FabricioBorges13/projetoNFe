@@ -15,6 +15,7 @@ export class NotaFiscal {
     public transportador: number;
 
     public destinatario: number;
+    public produto: Produto[];
 
     public valorDoFrete: number;
 
@@ -34,6 +35,8 @@ export class NotaFiscalDataCommand {
     public transportadorNome: string;
     public destinatarioId: number;
     public destinatarioNome: string;
+    public produtoId: number;
+    public produtoDescricao: string;
     public valorDoFrete: number;
 
     constructor(notafiscal: any) {
@@ -52,7 +55,23 @@ export class NotaFiscalDataCommand {
         this.destinatarioId = notafiscal.destinatarioId;
         this.destinatarioNome = notafiscal.destinatarioNome;
 
+        this.produtoId = notafiscal.produtoId;
+        this.produtoDescricao = notafiscal.produtoDescricao;
+
         this.valorDoFrete = notafiscal.valorDoFrete;
+    }
+}
+
+export class NotaFiscalPatchCommand {
+    public notafiscalId: number;
+    public produtoId: number[];
+    public produtoDescricao: string;
+    public valorDoFrete: number;
+
+    constructor(notafiscal: any) {
+        this.notafiscalId = notafiscal.notafiscalId;
+        this.produtoId = notafiscal.produtoId;
+        this.produtoDescricao = notafiscal.produtoDescricao;
     }
 }
 

@@ -1,3 +1,4 @@
+import { ProdutoService } from './../produto/shared/produto.service';
 import { DestinatarioService } from './../destinatario/shared/destinatario.service';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
@@ -18,6 +19,6 @@ import { TransportadorService } from '../transportador/shared/transportador.serv
     declarations: [NotaFiscalListComponent, NotaFiscalAddComponent, NotaFiscalDetailComponent],
     imports: [ SharedModule, GridModule, NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule, DropDownsModule ],
     exports: [],
-    providers: [NotaFiscalGridService, NotaFiscalService, EmitenteService, TransportadorService, DestinatarioService],
+    providers: [NotaFiscalGridService, NotaFiscalService, EmitenteService, TransportadorService, DestinatarioService, ProdutoService],
 })
 export class NotaFiscalModule {}

@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotaFiscalService } from '../shared/notafiscal.service';
 import { Router } from '@angular/router';
-import { NotaFiscal, NotaFiscalDataCommand } from '../shared/notafiscal.model';
+import { NotaFiscal, NotaFiscalDataCommand, NotaFiscalPatchCommand } from '../shared/notafiscal.model';
 import { Observable } from 'rxjs/Observable';
 import { EmitenteService } from '../../emitentes/shared/emitente.service';
 import { TransportadorService } from '../../transportador/shared/transportador.service';
+import { ProdutoService } from '../../produto/shared/produto.service';
 
 @Component({
     templateUrl: './notafiscal-add.component.html',
@@ -18,6 +19,7 @@ export class NotaFiscalAddComponent implements OnInit {
     public data: any[];
     public delay: number = 300;
     public form: FormGroup = this.fb.group({
+        id: ['', Validators.required],
         naturezaOperacao: ['', Validators.required],
         dataEntrada: ['', [Validators.required]],
         valorIpi: ['', [Validators.required]],
@@ -25,6 +27,7 @@ export class NotaFiscalAddComponent implements OnInit {
         emitente: [null, Validators.required],
         transportador: [null, Validators.required],
         destinatario: [null, Validators.required],
+        produto: [null, Validators.required],
         valorDoFrete: ['', Validators.required],
     });
     constructor(private service: NotaFiscalService,
@@ -32,7 +35,8 @@ export class NotaFiscalAddComponent implements OnInit {
         private router: Router,
         private serviceEmitente: EmitenteService,
         private serviceTransportador: TransportadorService,
-        private serviceDestinatario: DestinatarioService ) { }
+        private serviceDestinatario: DestinatarioService,
+        private serviceProduto: ProdutoService ) { }
 
     public ngOnInit(): void {
         //
@@ -61,6 +65,14 @@ export class NotaFiscalAddComponent implements OnInit {
             this.data = response;
           });
       }
+      public onAutoCompleteChangeProduto(value: string): any {
+        Observable.of(value)
+          .delay(this.delay)
+          .switchMap((value: any, index: number) => this.serviceProduto.getByName(value))
+          .subscribe((response: any) => {
+            this.data = response;
+          });
+      }
     public submit(): void {
         this.isLoading = true;
         const notaFiscalAddCommand: NotaFiscalDataCommand = new NotaFiscalDataCommand(this.form.value);
@@ -72,13 +84,27 @@ export class NotaFiscalAddComponent implements OnInit {
 
         notaFiscalAddCommand.destinatarioId = this.form.value.destinatario.id;
         notaFiscalAddCommand.destinatarioNome = this.form.value.destinatario.destinatarioNome;
+
+        notaFiscalAddCommand.produtoId = this.form.value.produto.id;
+        notaFiscalAddCommand.produtoDescricao = this.form.value.produto.produtoDescricao;
         this.service.add(notaFiscalAddCommand)
         .take(1)
         .subscribe(() => {
+            this.submitProduto();
             this.redirect();
             this.isLoading = false;
         });
     }
+
+    public submitProduto(): void {
+        // This.service.get(this.notafiscal.id).combineLatest;
+        const notafiscalPatchCommand: NotaFiscalPatchCommand = new NotaFiscalPatchCommand(this.form.value);
+        notafiscalPatchCommand.notafiscalId = this.form.value.id;
+        notafiscalPatchCommand.produtoId = this.form.value.produto.id;
+        notafiscalPatchCommand.produtoDescricao = this.form.value.produto.produtoDescricao;
+        this.service.addProduto(notafiscalPatchCommand);
+    }
+
     public redirect(): void {
         this.router.navigate(['./']);
     }
