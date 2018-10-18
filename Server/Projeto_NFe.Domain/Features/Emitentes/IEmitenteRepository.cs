@@ -8,6 +8,6 @@ namespace Projeto_NFe.Domain.Features.Emitentes
         bool Update(Emitente emitente);
         bool Remove(long emitenteId);
         Emitente GetById(long emitenteId);
-        IQueryable<Emitente> GetAll(int quantidade);
+        IQueryable<Emitente> GetAll();
     }
 }

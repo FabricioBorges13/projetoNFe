@@ -3,6 +3,7 @@ using FluentValidation.Results;
 using Moq;
 using NUnit.Framework;
 using Projeto_Nfe.API.Exceptions;
+using Projeto_Nfe.API.Models;
 using Projeto_NFe.Controller.Tests.Initializer;
 using Projeto_NFe.Domain.Base.Exceptions;
 using System;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -75,20 +77,32 @@ namespace Projeto_NFe.Controller.Tests.Common
         public void Controller_Base_HandleQueryable_ShouldBeOk()
         {
             //Arrange
-            var query = new List<ApiControllerBaseDummy>() { _dummy.Object }.AsQueryable();
+            var odataOptions = GetOdataQueryOptions<ApiControllerBaseDummy>(_apiControllerBase);
             // Action
             var callback = _apiControllerBase.HandleQuery<ApiControllerBaseDummy, ApiControllerBaseDummyViewModel>(_dummy.Object);
             //Assert
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<ApiControllerBaseDummyViewModel>>>().Subject;
+            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<ApiControllerBaseDummyViewModel>>().Subject;
             httpResponse.Content.Should().NotBeNull();
         }
+
 
 
         #endregion
 
         #region HandleValidationFailure
 
-       
+        [Test]
+        public void Controller_Base_HandleValidationFailure_ShouldBeHandleValidationErrors()
+        {
+            //Arrange
+            var validationFailure = new ValidationFailure("", ((int)CodigosDeErro.Unhandled).ToString());
+            IList<ValidationFailure> errors = new List<ValidationFailure>() { validationFailure };
+            // Action
+            var callback = _apiControllerBase.HandleValidationFailure(errors);
+            //Assert
+            var httpResponse = callback.Should().BeOfType<NegotiatedContentResult<IList<ValidationFailure>>>().Subject;
+            httpResponse.Content.FirstOrDefault().Should().Be(validationFailure);
+        }
 
         #endregion
     }

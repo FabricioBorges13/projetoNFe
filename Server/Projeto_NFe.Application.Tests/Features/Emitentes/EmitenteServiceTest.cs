@@ -77,11 +77,11 @@ namespace Projeto_NFe.Application.Tests.Features.Emitentes
             //Arrange
             var emitenteCmd = ObjectMother.GetEmitenteValidoParaDeletar();
             var removido = true;
-            _repositoryFake.Setup(pr => pr.Remove(emitenteCmd.EmitenteIds[1])).Returns(removido);
+            _repositoryFake.Setup(pr => pr.Remove(emitenteCmd.EmitenteIds[0])).Returns(removido);
             //Action
             var emitenteRemovido = _service.Delete(emitenteCmd);
             //Assert
-            _repositoryFake.Verify(pr => pr.Remove(emitenteCmd.EmitenteIds[1]), Times.Once);
+            _repositoryFake.Verify(pr => pr.Remove(emitenteCmd.EmitenteIds[0]), Times.Once);
             emitenteRemovido.Should().BeTrue();
         }
 
@@ -90,12 +90,12 @@ namespace Projeto_NFe.Application.Tests.Features.Emitentes
         {
             //Arrange
             var emitenteCmd = ObjectMother.GetEmitenteValidoParaDeletar();
-            _repositoryFake.Setup(x => x.Remove(emitenteCmd.EmitenteIds[1])).Throws<NotFoundException>();
+            _repositoryFake.Setup(x => x.Remove(emitenteCmd.EmitenteIds[0])).Throws<NotFoundException>();
             //Action
             Action act = () => _service.Delete(emitenteCmd);
             //Assert
             act.Should().Throw<NotFoundException>();
-            _repositoryFake.Verify(pr => pr.Remove(emitenteCmd.EmitenteIds[1]), Times.Once);
+            _repositoryFake.Verify(pr => pr.Remove(emitenteCmd.EmitenteIds[0]), Times.Once);
         }
 
         [Test]
@@ -131,11 +131,11 @@ namespace Projeto_NFe.Application.Tests.Features.Emitentes
             //Arrange
             var emitente = ObjectMother.GetEmitenteValido();
             var listaEmitentes = new List<Emitente>() { emitente }.AsQueryable();
-            _repositoryFake.Setup(pr => pr.GetAll(0)).Returns(listaEmitentes);
+            _repositoryFake.Setup(pr => pr.GetAll()).Returns(listaEmitentes);
             //Action
             var recebidos = _service.GetAll();
             //Assert
-            _repositoryFake.Verify(pr => pr.GetAll(0), Times.Once);
+            _repositoryFake.Verify(pr => pr.GetAll(), Times.Once);
             recebidos.Should().NotBeNull();
             recebidos.Count().Should().Be(listaEmitentes.Count());
             recebidos.First().Should().Be(listaEmitentes.First());

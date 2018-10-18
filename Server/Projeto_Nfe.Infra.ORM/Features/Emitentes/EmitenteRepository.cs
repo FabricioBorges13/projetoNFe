@@ -1,12 +1,8 @@
 ﻿using Projeto_Nfe.Infra.ORM.Context;
 using Projeto_NFe.Domain.Base.Exceptions;
 using Projeto_NFe.Domain.Features.Emitentes;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projeto_Nfe.Infra.ORM.Features.Emitentes
 {
@@ -40,12 +36,9 @@ namespace Projeto_Nfe.Infra.ORM.Features.Emitentes
             return _context.SaveChanges() > 0;
         }
 
-        public IQueryable<Emitente> GetAll(int quantidade)
+        public IQueryable<Emitente> GetAll()
         {
-            if (quantidade == 0)
-                return _context.Emitentes;
-            else
-                return _context.Emitentes.Take(quantidade);
+            return _context.Emitentes;
         }
 
         public Emitente GetById(long emitenteId)

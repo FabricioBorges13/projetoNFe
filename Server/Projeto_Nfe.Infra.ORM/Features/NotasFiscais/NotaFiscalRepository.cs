@@ -52,13 +52,7 @@ namespace Projeto_Nfe.Infra.ORM.Features.NotasFiscais
 
         public bool Update(NotaFiscal notaFiscal)
         {
-            DbEntityEntry dbEntityEntry = _context.Entry(notaFiscal);
-            
-            if (dbEntityEntry.State == EntityState.Detached)
-            {
-                _context.NotasFiscais.Attach(notaFiscal);
-            }
-
+            _context.Entry(notaFiscal).State = EntityState.Modified;
             return _context.SaveChanges() > 0;
         }
     }

@@ -5,6 +5,7 @@ using Projeto_NFe.Application.Tests.Initializer;
 using Projeto_NFe.Applications.Features.Destinatarios;
 using Projeto_NFe.Applications.Features.Destinatarios.Commands;
 using Projeto_NFe.Common.Tests.Features;
+using Projeto_NFe.Domain.Base.Exceptions;
 using Projeto_NFe.Domain.Features.Destinatarios;
 using System;
 using System.Collections.Generic;
@@ -45,22 +46,24 @@ namespace Projeto_NFe.Application.Tests.Features.Destinatarios
             _destinatarioRepository.Verify(x => x.Add(It.IsAny<Destinatario>()), Times.Once);
             _destinatarioRepository.VerifyNoOtherCalls();
         }
+
         [Test]
         public void ApplService_destinatario_Delete_Deve_Chamar_OMetodo_Delete()
         {
             //Arrange
             var destinatario = ObjectMother.destinatarioDeleteCommandValidoWithId;
 
-            _destinatarioRepository.Setup(x => x.Delete(destinatario.DestinatarioIds[1])).Returns(true);
+            _destinatarioRepository.Setup(x => x.Delete(destinatario.DestinatarioIds[0])).Returns(true);
 
             //Action
             Action destinatarioDeleteAction = () => _destinatarioService.Delete(destinatario);
 
             //Assert
             destinatarioDeleteAction.Should().NotThrow<Exception>();
-            _destinatarioRepository.Verify(x => x.Delete(destinatario.DestinatarioIds[1]), Times.Once());
+            _destinatarioRepository.Verify(x => x.Delete(destinatario.DestinatarioIds[0]), Times.Once());
             _destinatarioRepository.VerifyNoOtherCalls();
         }
+
         [Test]
         public void ApplService_destinatario_Update_Deve_Chamar_OsMetodos_Validar_E_Update()
         {
@@ -77,6 +80,21 @@ namespace Projeto_NFe.Application.Tests.Features.Destinatarios
             _destinatarioRepository.Verify(pr => pr.Update(destinatario), Times.Once);
             destinatarioAtualizado.Should().BeTrue();
         }
+
+        [Test]
+        public void ApplService_destinatario_Update_DeveJogarExcessao_NotFoundException()
+        {
+            //Arrange
+            var destinatarioCmd = ObjectMother.destinatarioUpdateCommandValidoWithId;
+            _destinatarioRepository.Setup(x => x.GetById(destinatarioCmd.Id)).Returns((Destinatario)null);
+            //Action
+            Action act = () => _destinatarioService.Update(destinatarioCmd);
+            //Assert
+            act.Should().Throw<NotFoundException>();
+            _destinatarioRepository.Verify(pr => pr.GetById(destinatarioCmd.Id), Times.Once);
+            _destinatarioRepository.Verify(pr => pr.Update(It.IsAny<Destinatario>()), Times.Never);
+        }
+
         [Test]
         public void ApplService_destinatario_Get_Deve_Chamar_OMetodo_Get()
         {
@@ -111,32 +129,5 @@ namespace Projeto_NFe.Application.Tests.Features.Destinatarios
             _destinatarioRepository.VerifyNoOtherCalls();
         }
 
-        //[Test]
-        //public void ApplService_destinatario_Delete_Deve_Retornar_Excessao_Quando_Tiver_Vinculo_Com_Nota()
-        //{
-        //    //Arrange
-        //    _destinatarioRepository.Setup(x => x.TemVinculoNota(It.IsAny<Destinatario>())).Returns(true);
-
-        //    //Action
-        //    Action actionDelete = () => _destinatarioService.Delete(ObjectMother.destinatarioValidoWithId);
-
-        //    //Assert
-        //    actionDelete.Should().Throw<PossuiVinculoComNotaException>();
-        //    _destinatarioRepository.Verify(x => x.TemVinculoNota(It.IsAny<Destinatario>()));
-        //}
-
-        //[Test]
-        //public void ApplService_destinatario_Delete_Nao_Deve_Retornar_Excessao_Quando_Nao_Tiver_Vinculo_Com_Nota()
-        //{
-        //    //Arrange
-        //    _destinatarioRepository.Setup(x => x.TemVinculoNota(It.IsAny<Destinatario>())).Returns(false);
-
-        //    //Action
-        //    Action actionDelete = () => _destinatarioService.Delete(ObjectMother.destinatarioValidoWithId);
-
-        //    //Assert
-        //    actionDelete.Should().NotThrow<PossuiVinculoComNotaException>();
-        //    _destinatarioRepository.Verify(x => x.TemVinculoNota(It.IsAny<Destinatario>()));
-        //}
     }
 }

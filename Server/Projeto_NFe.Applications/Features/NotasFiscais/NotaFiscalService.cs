@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using Projeto_NFe.Applications.Features.NotasFiscais.Commands;
 using Projeto_NFe.Domain.Features.Destinatarios;
@@ -20,9 +17,7 @@ namespace Projeto_NFe.Applications.Features.NotasFiscais
         ITransportadorRepository _transportadorRepository;
         IEmitenteRepository _emitenteRepository;
         IDestinatarioRepository _destinatarioRepository;
-
-
-
+        
         public NotaFiscalService(
             INotaFiscalRepository notaFiscalRepository, 
             IProdutoRepository produtoRepository, 
