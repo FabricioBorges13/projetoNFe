@@ -18,6 +18,6 @@ namespace Projeto_NFe.Applications.Features.Emitentes
 
         Emitente GetById(long id);
 
-        IQueryable<Emitente> GetAll(int quantidade = 0);
+        IQueryable<Emitente> GetAll();
     }
 }

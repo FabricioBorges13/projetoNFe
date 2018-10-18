@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using AutoMapper;
 using Projeto_NFe.Applications.Features.Destinatarios.Commands;
-using Projeto_NFe.Applications.Features.Destinatarios.Querries;
 using Projeto_NFe.Domain.Base.Exceptions;
 using Projeto_NFe.Domain.Features.Destinatarios;
 

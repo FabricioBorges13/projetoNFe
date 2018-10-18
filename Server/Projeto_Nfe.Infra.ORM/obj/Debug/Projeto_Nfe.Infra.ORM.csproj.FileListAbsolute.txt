@@ -24,20 +24,6 @@ C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_Nfe.Infra.ORM\
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CopyComplete
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.dll
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.pdb
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll.config
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.pdb
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_NFe.Domain.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_NFe.Domain.pdb
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.xml
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csprojAssemblyReference.cache
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CoreCompileInputs.cache
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CopyComplete
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.pdb
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll.config
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.pdb
@@ -52,3 +38,17 @@ C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.OR
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CopyComplete
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.dll
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll.config
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_NFe.Domain.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_NFe.Domain.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.xml
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csprojAssemblyReference.cache
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CoreCompileInputs.cache
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CopyComplete
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.pdb

@@ -100,7 +100,7 @@ namespace Projeto_NFe.Infra.ORM.Tests.Features.Emitentes
         public void Repositorio_Emitente_PegarTodos_DevePassar()
         {
             //Action
-            var emitentes = _repository.GetAll(0).ToList();
+            var emitentes = _repository.GetAll().ToList();
             //Assert
             emitentes.Should().NotBeNull();
             emitentes.Should().HaveCount(_context.Emitentes.Count());

@@ -14,6 +14,9 @@ namespace Projeto_NFe.Domain.Base.Identificacao
 
         public virtual void Validar()
         {
+            ValidarRazaoSocial();
+            ValidarIncricaoEstadual();
+            ValidarEndereco();
             ValidarNumeroDocumento();
         }
 
@@ -21,6 +24,32 @@ namespace Projeto_NFe.Domain.Base.Identificacao
         {
             if (NumeroDocumento == null)
                 throw new NumeroDocumentoVazioOuNuloException();
+        }
+
+        protected void ValidarRazaoSocial()
+        {
+            if (string.IsNullOrEmpty(NomeRazaoSocial))
+                throw new NomeVazioOuNuloException();
+        }
+
+        protected void ValidarIncricaoEstadual()
+        {
+            if (string.IsNullOrEmpty(InscricaoEstadual))
+                throw new InscricaoEstadualVazioOuNuloException();
+        }
+
+        protected void ValidarEndereco()
+        {
+            if (Endereco == null)
+                throw new EnderecoVazioOuNuloException();
+        }
+
+        public void ValidarVinculoComNota(bool temVinculoNota)
+        {
+            if (temVinculoNota)
+            {
+                throw new PossuiVinculoComNotaException();
+            }
         }
     }
 }

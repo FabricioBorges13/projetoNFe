@@ -1,5 +1,4 @@
-﻿using System;
-using Projeto_NFe.Base.Domain;
+﻿using Projeto_NFe.Base.Domain;
 using Projeto_NFe.Domain.Base.Imposto;
 
 namespace Projeto_NFe.Domain.Features.Produtos

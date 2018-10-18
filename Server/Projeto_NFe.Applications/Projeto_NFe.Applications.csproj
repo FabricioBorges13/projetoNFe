@@ -64,7 +64,6 @@
     <Compile Include="Features\Emitentes\EmitenteService.cs" />
     <Compile Include="Features\Emitentes\IEmitenteService.cs" />
     <Compile Include="Features\Emitentes\Mapping\MappingProfile.cs" />
-    <Compile Include="Features\Emitentes\Query\EmitenteQuery.cs" />
     <Compile Include="Features\Emitentes\ViewModel\EmitenteViewModel.cs" />
     <Compile Include="Features\Enderecos\EnderecoAddCommand.cs" />
     <Compile Include="Features\Enderecos\Mapping\MappingProfile.cs" />
@@ -86,7 +85,6 @@
     <Compile Include="Features\Destinatarios\DestinatarioService.cs" />
     <Compile Include="Features\Destinatarios\IDestinatarioService.cs" />
     <Compile Include="Features\Destinatarios\Mapping\MappingProfile.cs" />
-    <Compile Include="Features\Destinatarios\Querries\DestinatarioQuery.cs" />
     <Compile Include="Features\Destinatarios\ViewModels\DestinatarioViewModel.cs" />
     <Compile Include="Features\Transportadores\ViewModel\TransportadoraNaNotaFiscalViewModel.cs" />
     <Compile Include="Features\Produtos\Commands\ProdutoAddCommand.cs" />

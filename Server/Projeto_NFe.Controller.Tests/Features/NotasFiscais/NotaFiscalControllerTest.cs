@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FluentValidation.Results;
+using Microsoft.AspNet.OData;
 using Moq;
 using NUnit.Framework;
 using Projeto_Nfe.API.Controllers.NotasFiscais;
@@ -70,7 +71,7 @@ namespace Projeto_NFe.Controller.Tests.Features.NotasFiscais
             var callback = _controller.Get(odataOptions);
             //Assert
             _service.Verify(s => s.GetAll(), Times.Once);
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<NotaFiscalViewModel>>>().Subject;
+            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<PageResult<NotaFiscalViewModel>>>().Subject;
             httpResponse.Content.Should().NotBeNullOrEmpty();
             httpResponse.Content.First().Id.Should().Be(notaFiscal.Id);
         }

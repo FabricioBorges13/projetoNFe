@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FluentValidation.Results;
+using Microsoft.AspNet.OData;
 using Moq;
 using NUnit.Framework;
 using Projeto_Nfe.API.Controllers.Produtos;
@@ -124,7 +125,7 @@ namespace Projeto_NFe.Controller.Tests.Features.Produtos
             var callback = _produtoController.Get(odataOptions);
             //Assert
             _produtoServiceMock.Verify(s => s.GetAll(), Times.Once);
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<ProdutoViewModel>>>().Subject;
+            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<PageResult<ProdutoViewModel>>>().Subject;
             httpResponse.Content.Should().NotBeNullOrEmpty();
             httpResponse.Content.First().Id.Should().Be(produto.Id);
         }
@@ -145,7 +146,7 @@ namespace Projeto_NFe.Controller.Tests.Features.Produtos
 
             //Assert
             _produtoServiceMock.Verify(s => s.GetAll(), Times.Once);
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<ProdutoViewModel>>>().Subject;
+            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<PageResult<ProdutoViewModel>>>().Subject;
             httpResponse.Content.Should().NotBeNullOrEmpty();
             httpResponse.Content.First().Id.Should().Be(produto.Id);
         }

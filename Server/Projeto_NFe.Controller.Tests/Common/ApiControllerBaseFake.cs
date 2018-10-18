@@ -1,7 +1,4 @@
-﻿using AutoMapper.QueryableExtensions;
-using FluentValidation.Results;
-using Microsoft.AspNet.OData;
-using Microsoft.AspNet.OData.Extensions;
+﻿using FluentValidation.Results;
 using Microsoft.AspNet.OData.Query;
 using Projeto_Nfe.API.Controllers.Comum;
 using Projeto_Nfe.API.Exceptions;
@@ -25,15 +22,14 @@ namespace Projeto_NFe.Controller.Tests.Common
             return base.HandleQuery<TSource, TResult>(query);
         }
 
-       protected IHttpActionResult HandleQueryable<TSource, TResult>(IQueryable<TSource> query, ODataQueryOptions<TSource> queryOptions)
+        public IHttpActionResult HandleQueryable<TSource, TResult>(IQueryable<TSource> query, ODataQueryOptions<TSource> queryOptions)
         {
-            var odataQuery = queryOptions.ApplyTo(query).Cast<TSource>();
-            var dataQuery = odataQuery.ToList().AsQueryable().ProjectTo<TResult>();
-            var pageResult = new PageResult<TResult>(dataQuery,
-                                    Request.ODataProperties().NextLink,
-                                    Request.ODataProperties().TotalCount);
-            // Esse .ToList() é performado no ProjectTo e não mais no EF
-            return Ok(pageResult);
+            return base.HandleQueryable<TSource, TResult>(query, queryOptions);
+        }
+
+        public IHttpActionResult HandleValidationFailure<T>(IList<T> validationFailure) where T : ValidationFailure
+        {
+            return base.HandleValidationFailure<T>(validationFailure);
         }
 
         protected IHttpActionResult HandleFailure<T>(T exceptionToHandle) where T : Exception
@@ -44,7 +40,19 @@ namespace Projeto_NFe.Controller.Tests.Common
                 Content(HttpStatusCode.InternalServerError, exceptionPayload);
         }
     }
-    public class ApiControllerBaseDummy { }
-    public class ApiControllerBaseDummyViewModel { }
-    public class ApiControllerBaseDummyQuery { }
+    /// <summary>
+    /// Dummy usado para preencher valores: um tipo vazio
+    /// </summary>
+    public class ApiControllerBaseDummy
+    {
+        public int Id { get; set; }
+    }
+
+    /// <summary>
+    /// Dummy usado para conversões de mapeamento
+    /// </summary>
+    public class ApiControllerBaseDummyViewModel
+    {
+        public int Id { get; set; }
+    }
 }

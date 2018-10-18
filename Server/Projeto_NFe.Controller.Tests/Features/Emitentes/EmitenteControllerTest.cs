@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FluentValidation.Results;
+using Microsoft.AspNet.OData;
 using Moq;
 using NUnit.Framework;
 using Projeto_Nfe.API.Controllers.Emitentes;
@@ -113,39 +114,19 @@ namespace Projeto_NFe.Controller.Tests.Features.Emitentes
             // Arrange
             var emitente = ObjectMother.GetEmitenteValido();
             var response = new List<Emitente>() { emitente }.AsQueryable();
-            _emitenteServiceMock.Setup(s => s.GetAll(0)).Returns(response);
+            _emitenteServiceMock.Setup(s => s.GetAll()).Returns(response);
             var odataOptions = GetOdataQueryOptions<Emitente>(_emitenteController);
 
             // Action
             var callback = _emitenteController.Get(odataOptions);
             //Assert
-            _emitenteServiceMock.Verify(s => s.GetAll(0), Times.Once);
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<EmitenteViewModel>>>().Subject;
+            _emitenteServiceMock.Verify(s => s.GetAll(), Times.Once);
+            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<PageResult<EmitenteViewModel>>>().Subject;
             httpResponse.Content.Should().NotBeNullOrEmpty();
             httpResponse.Content.First().Id.Should().Be(emitente.Id);
         }
 
-        [Test]
-        public void Controller_Emitentes_Get_Com_Quantidade_DevePassar()
-        {
-            // Arrange
-            var emitente = ObjectMother.GetEmitenteValido();
-            var uri = "http://localhost:55365/api/emitentes?quantidade=3";
-            var quantidade = 3;
-            var response = new List<Emitente>() { emitente, emitente, emitente }.AsQueryable();
-            _emitenteServiceMock.Setup(s => s.GetAll(quantidade)).Returns(response);
-            _emitenteController.Request = GetUri(uri);
 
-            var odataOptions = GetOdataQueryOptions<Emitente>(_emitenteController);
-            // Action
-            var callback = _emitenteController.Get(odataOptions);
-            //Assert
-            _emitenteServiceMock.Verify(s => s.GetAll(quantidade), Times.Once);
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<EmitenteViewModel>>>().Subject;
-            httpResponse.Content.Should().NotBeNullOrEmpty();
-            httpResponse.Content.Count.Should().Be(quantidade);
-            httpResponse.Content.First().Id.Should().Be(emitente.Id);
-        }
 
         [Test]
         public void Controller_Emitentes_Get_Com_Outros_Filtros_DevePassar()
@@ -154,14 +135,14 @@ namespace Projeto_NFe.Controller.Tests.Features.Emitentes
             var emitente = ObjectMother.GetEmitenteValido();
             var uri = "http://localhost:55365/api/emitente?nome=Jonhson";
             var response = new List<Emitente>() { emitente, emitente, emitente }.AsQueryable();
-            _emitenteServiceMock.Setup(s => s.GetAll(0)).Returns(response);
+            _emitenteServiceMock.Setup(s => s.GetAll()).Returns(response);
             _emitenteController.Request = GetUri(uri);
             var odataOptions = GetOdataQueryOptions<Emitente>(_emitenteController);
             // Action
             var callback = _emitenteController.Get(odataOptions);
             //Assert
-            _emitenteServiceMock.Verify(s => s.GetAll(0), Times.Once);
-            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<List<EmitenteViewModel>>>().Subject;
+            _emitenteServiceMock.Verify(s => s.GetAll(), Times.Once);
+            var httpResponse = callback.Should().BeOfType<OkNegotiatedContentResult<PageResult<EmitenteViewModel>>>().Subject;
             httpResponse.Content.Should().NotBeNullOrEmpty();
             httpResponse.Content.First().Id.Should().Be(emitente.Id);
         }

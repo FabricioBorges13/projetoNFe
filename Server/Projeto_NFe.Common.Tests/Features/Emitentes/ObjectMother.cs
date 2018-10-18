@@ -10,11 +10,11 @@ namespace Projeto_NFe.Common.Tests.Features
         {
             return new Emitente()
             {
-                Endereco = destinatarioValido,
+                Endereco = enderecoValido,
                 InscricaoEstadual = "SC",
                 inscricaoMunicipal = "Lages",
                 NomeRazaoSocial = "Filho de Jonh",
-                NumeroDocumento = "60.353.014/0001-10",
+                NumeroDocumento = "10.202.550/0001-47",
             };
         }
 
@@ -23,51 +23,15 @@ namespace Projeto_NFe.Common.Tests.Features
             return new Emitente()
             {
                 Id = 1,
-                Endereco = destinatarioValido,
+                Endereco = enderecoValido,
                 InscricaoEstadual = "SC",
                 inscricaoMunicipal = "Lages",
                 NomeRazaoSocial = "Proteger e Servir",
-                NumeroDocumento = "078.463.799-76",
+                NumeroDocumento = "10.202.550/0001-47",
 
             };
         }
 
-        public static List<Emitente> EmitenteValidoListDefault()
-        {
-            List<Emitente> destinatarioList = new List<Emitente>();
-
-            destinatarioList.Add(new Emitente()
-            {
-                Id = 1,
-                Endereco = destinatarioValido,
-                InscricaoEstadual = "SC",
-                inscricaoMunicipal = "Lages",
-                NomeRazaoSocial = "Proteger e Servir",
-                NumeroDocumento = "078.463.799-76",
-            });
-
-            destinatarioList.Add(new Emitente()
-            {
-                Id = 2,
-                Endereco = destinatarioValido,
-                InscricaoEstadual = "SC",
-                inscricaoMunicipal = "Lages",
-                NomeRazaoSocial = "Go Go Power Rangers",
-                NumeroDocumento = "078.463.799-76",
-            });
-            destinatarioList.Add(new Emitente()
-            {
-                Id = 3,
-                Endereco = destinatarioValido,
-                InscricaoEstadual = "SC",
-                inscricaoMunicipal = "Lages",
-                NomeRazaoSocial = "It's Morphing Time",
-                NumeroDocumento = "078.463.799-76",
-            });
-
-            return destinatarioList;
-
-        }
 
         public static EmitenteAddCommand GetEmitenteValidoParaRegistrar()
         {
@@ -76,7 +40,7 @@ namespace Projeto_NFe.Common.Tests.Features
                 InscricaoEstadual = "SC",
                 InscricaoMunicipal = "Lages",
                 NomeRazaoSocial = "Proteger e Servir",
-                NumeroDoDocumento = "078.463.799-76",
+                NumeroDoDocumento = "10.202.550/0001-47",
                 Endereco = EnderecoValidoParaRegistrar()
             };
         }
@@ -89,7 +53,7 @@ namespace Projeto_NFe.Common.Tests.Features
                 InscricaoEstadual = "SC",
                 InscricaoMunicipal = "Lages",
                 NomeRazaoSocial = "Proteger e Servir",
-                NumeroDoDocumento = "078.463.799-76",
+                NumeroDoDocumento = "10.202.550/0001-47",
                 Endereco = EnderecoValidoParaAtualizar()
             };
         }

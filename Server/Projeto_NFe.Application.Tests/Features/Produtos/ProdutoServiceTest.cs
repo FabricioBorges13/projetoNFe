@@ -77,11 +77,11 @@ namespace Projeto_NFe.Application.Tests.Features.Produtos
             //Arrange
             var produtoCmd = ObjectMother.GetProdutoValidoParaDeletar();
             var removido = true;
-            _repositoryFake.Setup(pr => pr.Delete(produtoCmd.ProdutoIds[1])).Returns(removido);
+            _repositoryFake.Setup(pr => pr.Delete(produtoCmd.ProdutoIds[0])).Returns(removido);
             //Action
             var produtoRemovido = _service.Delete(produtoCmd);
             //Assert
-            _repositoryFake.Verify(pr => pr.Delete(produtoCmd.ProdutoIds[1]), Times.Once);
+            _repositoryFake.Verify(pr => pr.Delete(produtoCmd.ProdutoIds[0]), Times.Once);
             produtoRemovido.Should().BeTrue();
         }
 
@@ -90,12 +90,12 @@ namespace Projeto_NFe.Application.Tests.Features.Produtos
         {
             //Arrange
             var produtoCmd = ObjectMother.GetProdutoValidoParaDeletar();
-            _repositoryFake.Setup(x => x.Delete(produtoCmd.ProdutoIds[1])).Throws<NotFoundException>();
+            _repositoryFake.Setup(x => x.Delete(produtoCmd.ProdutoIds[0])).Throws<NotFoundException>();
             //Action
             Action act = () => _service.Delete(produtoCmd);
             //Assert
             act.Should().Throw<NotFoundException>();
-            _repositoryFake.Verify(pr => pr.Delete(produtoCmd.ProdutoIds[1]), Times.Once);
+            _repositoryFake.Verify(pr => pr.Delete(produtoCmd.ProdutoIds[0]), Times.Once);
         }
 
         [Test]
