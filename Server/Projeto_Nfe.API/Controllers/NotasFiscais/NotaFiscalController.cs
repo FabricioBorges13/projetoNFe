@@ -38,14 +38,12 @@ namespace Projeto_Nfe.API.Controllers.NotasFiscais
         }
         [HttpGet]
         [Route("{id:int}/produtos")]
-        public IHttpActionResult GetProdutoFromNotaFiscal(long id)
+        public IHttpActionResult GetProdutoFromNotaFiscal(long id, ODataQueryOptions<Produto> queryOptions)
         {
             var query = default(IQueryable<Produto>);
             query = _notaFiscalService.GetListaDeProdutoDaNotaFiscal(id);
-
-            var queryOptions = default(ODataQueryOptions<Produto>);
-
-            return HandleQueryable<Produto, ProdutoViewModel>(query, queryOptions);
+            
+            return HandleQueryable<Produto, ProdutoInNotaFiscalViewModel>(query, queryOptions);
         }
 
         [HttpGet]
