@@ -54,7 +54,7 @@
                         </span>
                     </div>
                     <input class="form__input" [class.form__input--error]="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')"
-                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento">
+                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento" placeholder="Ex.: 00.000.000/0000-00">
                     <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')">
                         Field is required
                     </span>
@@ -68,7 +68,7 @@
                         </span>
                     </div>
                     <input class="form__input" [class.form__input--error]="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')"
-                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento">
+                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento" placeholder="Ex.: 000.000.000-00">
                     <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')">
                         Field is required
                     </span>
