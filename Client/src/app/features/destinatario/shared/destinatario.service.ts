@@ -71,8 +71,8 @@ export class DestinatarioService extends BaseService {
             .map((response: any) => response.items);
     }
 
-    public add(cmd: DestinatarioAddCommand): Observable<boolean> {
-        return this.http.post(this.api, cmd).map((response: boolean) => response);
+    public post(cmd: DestinatarioAddCommand): Observable<number> {
+        return this.http.post(this.api, cmd).map((response: number)=> response);
     }
 
     public update(cmd: DestinatarioUpdateCommand): Observable<boolean> {

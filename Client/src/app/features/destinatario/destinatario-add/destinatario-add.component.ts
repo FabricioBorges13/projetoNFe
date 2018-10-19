@@ -12,6 +12,7 @@ export class DestinatarioAddComponent {
 
     public title: string = 'Cadastrar Destinatario';
     public isLoading: boolean;
+    public typeDocument: boolean = false;
     public formModel: FormGroup = this.fb.group({
         nomeRazaoSocial: ['', Validators.required],
         logradouro: ['', Validators.required],
@@ -28,15 +29,18 @@ export class DestinatarioAddComponent {
     }
 
     public onSubmit(): void {
-        this.isLoading = true;
-        const cmdDestinatarioAdd: DestinatarioAddCommand = new DestinatarioAddCommand(this.formModel.value);
-        this.service.add(cmdDestinatarioAdd)
-            .take(1)
-            .subscribe(() => {
-                this.redirect();
-                this.isLoading = false;
-            });
+        const cmd: DestinatarioAddCommand = new DestinatarioAddCommand(this.formModel.value);
+        this.service.post(cmd)
+        .take(1)
+        .subscribe(() => {
+            this.router.navigate(['destinatario']);
+        });
     }
+
+    public onChange(): void {
+        this.typeDocument = !this.typeDocument;
+    }
+
     public redirect(): void {
         this.router.navigate(['./../'],
             { relativeTo: this.route });
