@@ -6,11 +6,10 @@ import { ICoreConfig, CORE_CONFIG_TOKEN } from '../../../core/core.config';
 import { State, toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BaseService } from '../../../core/utils';
-import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand, ListProdutosInNotaFiscal } from './notafiscal.model';
+import { NotaFiscal, NotaFiscalDeleteCommand, NotaFiscalDataCommand, ListProdutosInNotaFiscal, NotaFiscalPatchCommand } from './notafiscal.model';
 import { AbstractResolveService } from '../../../core/utils/abstract-resolve.service';
 import { Router } from '@angular/router';
 import { NDDBreadcrumbService } from '../../../shared/ndd-ng-breadcrumb';
-import { Produto } from '../../produto/shared/produto.model';
 
 @Injectable()
 export class NotaFiscalGridService extends BehaviorSubject<GridDataResult>{

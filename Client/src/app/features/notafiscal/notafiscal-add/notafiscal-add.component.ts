@@ -99,7 +99,7 @@ export class NotaFiscalAddComponent implements OnInit {
     public submitProduto(): void {
         // This.service.get(this.notafiscal.id).combineLatest;
         const notafiscalPatchCommand: NotaFiscalPatchCommand = new NotaFiscalPatchCommand(this.form.value);
-        notafiscalPatchCommand.notafiscalId = this.form.value.id;
+        notafiscalPatchCommand.notafiscalId = this.notafiscal.id;
         notafiscalPatchCommand.produtoId = this.form.value.produto.id;
         notafiscalPatchCommand.produtoDescricao = this.form.value.produto.produtoDescricao;
         this.service.addProduto(notafiscalPatchCommand);
