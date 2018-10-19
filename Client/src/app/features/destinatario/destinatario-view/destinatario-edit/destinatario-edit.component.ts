@@ -1,30 +1,32 @@
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { DestinatarioService, DestinatarioResolveService } from './../../shared/destinatario.service';
-import { DestinatarioUpdateCommand, Destinatario } from './../../shared/destinatario.model';
-import { OnInit, Component } from '@angular/core';
+import { Destinatario, DestinatarioUpdateCommand } from '../../shared/destinatario.model';
+import { DestinatarioService, DestinatarioResolveService } from '../../shared/destinatario.service';
 
 @Component({
-    templateUrl: './destinatario-edit.component.html',
+    templateUrl: 'destinatario-edit.component.html',
 })
-export class DestinatarioEditComponent implements OnInit {
+
+export class DestinatarioEditComponent implements OnInit, OnDestroy {
 
     public destinatario: Destinatario;
-    public title: string = 'Criar Destinatarios';
-    public isLoading: boolean;
-    public formModel: FormGroup = this.fb.group({
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
+    private form: FormGroup = this.fb.group({
         nomeRazaoSocial: ['', Validators.required],
         inscricaoEstadual: ['', Validators.required],
-        numeroDeDocumento: ['', Validators.required],
-        endereco: ['', Validators.required],
-    },
-    );
+        numeroDocumento: ['', Validators.required],
+        logradouro: ['', Validators.required],
+        numero: ['', Validators.required],
+        bairro: ['', Validators.required],
+        municipio: ['', Validators.required],
+        estado: ['', Validators.required],
+    });
 
-    private ngUnsubscribe: Subject<void> = new Subject<void>();
-
-    constructor(private fb: FormBuilder,
-        private service: DestinatarioService, private resolver: DestinatarioResolveService, private router: Router, private route: ActivatedRoute) {
+    constructor(private fb: FormBuilder, private service: DestinatarioService, private router: Router,
+        private resolver: DestinatarioResolveService, private route: ActivatedRoute) {
     }
 
     public ngOnInit(): void {
@@ -32,29 +34,34 @@ export class DestinatarioEditComponent implements OnInit {
             .takeUntil(this.ngUnsubscribe)
             .subscribe((destinatario: Destinatario) => {
                 this.destinatario = Object.assign(new Destinatario(), destinatario);
-                this.formModel.patchValue({
-                    id: destinatario.id,
+                this.form.patchValue({
                     nomeRazaoSocial: destinatario.nomeRazaoSocial,
                     inscricaoEstadual: destinatario.inscricaoEstadual,
-                    numeroDeDocumento: destinatario.numeroDoDocumento,
+                    numeroDocumento: destinatario.numeroDocumento,
+                    logradouro: destinatario.endereco.logradouro,
+                    numero: destinatario.endereco.numero,
+                    bairro: destinatario.endereco.bairro,
+                    municipio: destinatario.endereco.municipio,
+                    estado: destinatario.endereco.estado,
                 });
             });
     }
 
-    public onSubmit(): void {
-        this.isLoading = true;
-        const cmdDestinatarioAdd: DestinatarioUpdateCommand = new DestinatarioUpdateCommand(this.formModel.value);
-        this.service.update(cmdDestinatarioAdd)
-            .take(1)
-            .subscribe(() => {
-                this.redirect();
-                this.isLoading = false;
-
-            });
+    public ngOnDestroy(): void {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
-
-    public redirect(): void {
-        this.router.navigate(['./../'],
-            { relativeTo: this.route });
+    public onSubmit(): void {
+        const cmd: DestinatarioUpdateCommand = new DestinatarioUpdateCommand(this.form.value);
+        cmd.id = this.destinatario.id,
+            this.service.update(cmd)
+                .take(1)
+                .subscribe(() => {
+                    this.resolver.resolveFromRouteAndNotify();
+                    this.router.navigate(['../'], { relativeTo: this.route });
+                });
+    }
+    private redirect(): void {
+        this.router.navigate(['../'], { relativeTo: this.route });
     }
 }

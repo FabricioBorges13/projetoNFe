@@ -3,20 +3,20 @@ export class Destinatario {
     public id: number;
     public nomeRazaoSocial: string;
     public inscricaoEstadual: string;
-    public numeroDoDocumento: string;
+    public numeroDocumento: string;
     public endereco: Endereco;
 }
 
 export class DestinatarioAddCommand {
     public nomeRazaoSocial: string;
     public inscricaoEstadual: string;
-    public numeroDoDocumento: string;
+    public numeroDocumento: string;
     public endereco: Endereco;
 
     constructor(destinatario: any) {
         this.nomeRazaoSocial = destinatario.nomeRazaoSocial;
         this.inscricaoEstadual = destinatario.inscricaoEstadual;
-        this.numeroDoDocumento = destinatario.numeroDoDocumento;
+        this.numeroDocumento = destinatario.numeroDoDocumento;
         this.endereco = new Endereco();
         this.endereco.logradouro = destinatario.logradouro;
         this.endereco.bairro = destinatario.bairro;
@@ -31,14 +31,14 @@ export class DestinatarioUpdateCommand {
     public id: number;
     public nomeRazaoSocial: string;
     public inscricaoEstadual: string;
-    public numeroDoDocumento: string;
+    public numeroDocumento: string;
     public endereco: Endereco;
 
     constructor(destinatario: Destinatario) {
         this.id = destinatario.id;
         this.nomeRazaoSocial = destinatario.nomeRazaoSocial;
         this.inscricaoEstadual = destinatario.inscricaoEstadual;
-        this.numeroDoDocumento = destinatario.numeroDoDocumento;
+        this.numeroDocumento = destinatario.numeroDocumento;
         this.endereco = destinatario.endereco;
     }
 }

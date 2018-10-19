@@ -1,0 +1,173 @@
+<div class="feature-view-tab__content">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="feature-view__title">Dados cadastrais</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 feature-view__body">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('nomeRazaoSocial').touched 
+                                                            && form.get('nomeRazaoSocial').hasError('required')">Razão Social
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('nomeRazaoSocial').touched && form.get('nomeRazaoSocial').hasError('required')"
+                    autocomplete="off" type="text" formControlName="nomeRazaoSocial" id="nomeRazaoSocial">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('nomeRazaoSocial').touched && form.get('nomeRazaoSocial').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+            <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="destinatario?.inscricaoEstadual">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('inscricaoEstadual').touched 
+                                                    && form.get('inscricaoEstadual').hasError('required')">Inscrição Estadual
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('inscricaoEstadual').touched && form.get('inscricaoEstadual').hasError('required')"
+                    autocomplete="off" type="text" formControlName="inscricaoEstadual" id="inscricaoEstadual">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('inscricaoEstadual').touched && form.get('inscricaoEstadual').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+            <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="destinatario?.inscricaoEstadual">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('numeroDocumento').touched 
+                                            && form.get('numeroDocumento').hasError('required')">CNPJ
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('numeroDocumento').touched && form.get('numeroDocumento').hasError('required')"
+                    autocomplete="off" type="text" formControlName="numeroDocumento"  id="numeroDoDocumento">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDocumento').touched && form.get('numeroDocumento').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+
+            <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="!destinatario?.inscricaoEstadual">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('numeroDocumento').touched 
+                                            && form.get('numeroDocumento').hasError('required')">CPF
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('numeroDocumento').touched && form.get('numeroDocumento').hasError('required')"
+                    autocomplete="off" type="text" formControlName="numeroDocumento"  id="numeroDoDocumento">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDocumento').touched && form.get('numeroDocumento').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="feature-view__title">Endereço</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 feature-view__body">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('logradouro').touched 
+                                    && form.get('logradouro').hasError('required')">Logradouro
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('logradouro').touched && form.get('logradouro').hasError('required')"
+                    autocomplete="off" type="text" formControlName="logradouro" id="logradouro">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('logradouro').touched && form.get('logradouro').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+            <div class="col-md-6 col-sm-6 feature-view__body">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('bairro').touched 
+                                            && form.get('bairro').hasError('required')">Bairro
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('bairro').touched && form.get('bairro').hasError('required')"
+                    autocomplete="off" type="text" formControlName="bairro" id="bairro">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('bairro').touched && form.get('bairro').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+            <div class="col-md-6 col-sm-6 feature-view__body">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('numero').touched 
+                                                    && form.get('numero').hasError('required')">Numero
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('numero').touched && form.get('numero').hasError('required')"
+                    autocomplete="off" type="number" formControlName="numero" id="numero">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('numero').touched && form.get('numero').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+            <div class="col-md-6 col-sm-6 feature-view__body">
+                <div>
+                    <span class="form__label" [class.form__label--error]="form.get('municipio').touched 
+                                                            && form.get('municipio').hasError('required')">Município
+                        <span class="form__label--required">*</span>
+                    </span>
+                </div>
+                <input class="form__input" [class.form__input--error]="form.get('municipio').touched && form.get('municipio').hasError('required')"
+                    autocomplete="off" type="text" formControlName="municipio" id="municipio">
+                <span class="form__label form__label--error form__label--message" *ngIf="form.get('municipio').touched && form.get('municipio').hasError('required')">
+                    Field is required
+                </span>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <label class="form__label" [class.form__label--error]="form.get('estado').touched && form.get('estado').hasError('required')">Estado
+                        <span class="form__label--required">*</span>
+                    </label>
+                </div>
+                <div>
+                    <select class="form__input--dropdown" formControlName="estado" id="estado" [class.form__input--error]="form.get('estado').touched && form.get('estado').hasError('required')">
+                        <option value="">Escolha seu Estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="feature-view-tab__footer">
+    <button type="submit" class="ndd-ng-button ndd-ng-button--primary" (click)="onSubmit($event)">Salvar</button>
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Cancelar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

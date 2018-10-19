@@ -26,34 +26,56 @@
                                     Campo Obrigatório
                                 </span>
                             </div>
-                        </div>                        
+                        </div>
                         <div class="col-md-6 col-sm-6 feature-view__body">
                             <div>
-                                <label class="form__label" for="numeroDeDocumento" [class.form__label--error]="formModel.get('numeroDeDocumento').hasError('required') && formModel.get('numeroDeDocumento').touched">CPF/CNPJ
+                                <span class="form__label">Pessoa Jurídica?
+                                </span>
+                            </div>
+                            <ui-switch (change)="onChange($event)" size="small" color="blue"></ui-switch>
+                        </div>
+
+                    </div>
+
+                    <div class="row feature-view__group" *ngIf="typeDocument">
+                        <div class="col-md-6 col-sm-6 feature-view__body">
+                            <div>
+                                <span class="form__label">
+                                    Inscrição Estadual
+                                </span>
+                            </div>
+                            <input class="form__input" placeHolder="digite sua inscrição estadual" autocomplete="off" type="text"
+                                formControlName="inscricaoEstadual" id="inscricaoEstadual">
+                        </div>
+                        <div class="col-md-6 col-sm-6 feature-view__body">
+                            <div>
+                                <label class="form__label" for="numeroDocumento" [class.form__label--error]="formModel.get('numeroDocumento').hasError('required') && formModel.get('numeroDocumento').touched">CPF/CNPJ
                                     <span class="form__label form__label--required">*</span>
                                 </label>
                             </div>
                             <div>
-                                <input formControlName="numeroDeDocumento" type="text" id="numeroDeDocumento" class="form__input"
-                                    placeHolder="digite seu numero de documento" [class.form__input--error]="formModel.get('numeroDeDocumento').hasError('required') && formModel.get('numeroDeDocumento').touched">
-                                <span class="form__label form__label--error" *ngIf="formModel.get('numeroDeDocumento').hasError('required') && formModel.get('numeroDeDocumento').touched">
+                                <input formControlName="numeroDocumento" type="text" id="numeroDocumento" class="form__input"
+                                    placeHolder="digite seu numero de documento" [class.form__input--error]="formModel.get('numeroDocumento').hasError('required') && formModel.get('numeroDocumento').touched">
+                                <span class="form__label form__label--error" *ngIf="formModel.get('numeroDocumento').hasError('required') && formModel.get('numeroDocumento').touched">
                                     Campo Obrigatório
                                 </span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row feature-view__group">
+                    <div class="row feature-view__group" *ngIf="!typeDocument">
                         <div class="col-md-6 col-sm-6 feature-view__body">
                             <div>
-                                <label class="form__label" for="inscricaoEstadual" [class.form__label--error]="formModel.get('inscricaoEstadual').hasError('required') && formModel.get('inscricaoEstadual').touched">Inscricao
-                                    Estadual
+                                <label class="form__label" for="numeroDocumento" [class.form__label--error]="formModel.get('numeroDocumento').hasError('required') && formModel.get('numeroDocumento').touched">CPF/CNPJ
+                                    <span class="form__label form__label--required">*</span>
                                 </label>
                             </div>
                             <div>
-                                <input formControlName="inscricaoEstadual" type="number" id="inscricaoEstadual" class="form__input"
-                                    placeHolder="Digite sua inscrição estadual" [class.form__input--error]="formModel.get('inscricaoEstadual').hasError('required') && formModel.get('inscricaoEstadual').touched">
-
+                                <input formControlName="numeroDocumento" type="text" id="numeroDocumento" class="form__input"
+                                    placeHolder="digite seu numero de documento" [class.form__input--error]="formModel.get('numeroDocumento').hasError('required') && formModel.get('numeroDocumento').touched">
+                                <span class="form__label form__label--error" *ngIf="formModel.get('numeroDocumento').hasError('required') && formModel.get('numeroDocumento').touched">
+                                    Campo Obrigatório
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -130,11 +152,36 @@
                                 </label>
                             </div>
                             <div>
-                                <input formControlName="estado" type="text" id="estado" class="form__input" placeHolder="Digite seu estado"
-                                    [class.form__input--error]="formModel.get('estado').hasError('required') && formModel.get('estado').touched">
-                                <span class="form__label form__label--error" *ngIf="formModel.get('estado').hasError('required') && formModel.get('estado').touched">
-                                    Campo Obrigatório
-                                </span>
+                                <select class="form__input--dropdown" formControlName="estado" id="estado" [class.form__input--error]="formModel.get('estado').touched && formModel.get('estado').hasError('required')">
+                                    <option value="">Escolha seu Estado</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
                             </div>
                         </div>
                     </div>
