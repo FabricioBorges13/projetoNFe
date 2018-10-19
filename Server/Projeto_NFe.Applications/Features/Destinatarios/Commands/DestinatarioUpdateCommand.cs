@@ -29,7 +29,6 @@ namespace Projeto_NFe.Applications.Features.Destinatarios.Commands
             {
                 RuleFor(x => x.Id).GreaterThan(0);
                 RuleFor(x => x.NomeRazaoSocial).NotNull();
-                RuleFor(x => x.InscricaoEstadual).NotNull();
                 RuleFor(x => x.NumeroDoDocumento).NotNull();
                 RuleFor(x => x.Endereco).NotNull();
             }
