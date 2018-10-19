@@ -2,46 +2,29 @@ import { DestinatarioAddCommand } from '../../../features/destinatario/shared/de
 import { Endereco } from './../../endereco/endereco.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DestinatarioService } from './../shared/destinatario.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 @Component({
     selector: 'ndd-destinatario-add',
     templateUrl: './destinatario-add.component.html',
 })
-export class DestinatarioAddComponent implements OnInit {
+export class DestinatarioAddComponent {
 
     public title: string = 'Cadastrar Destinatario';
     public isLoading: boolean;
     public formModel: FormGroup = this.fb.group({
-        isEmpresa: [true],
         nomeRazaoSocial: ['', Validators.required],
         logradouro: ['', Validators.required],
         bairro: ['', Validators.required],
         numero: ['', Validators.required],
         municipio: ['', Validators.required],
         estado: ['', Validators.required],
-    });
-
-    public formModelEmpresa: FormGroup = this.fb.group({
-        inscricaoEstadual: ['', Validators.required],
-        inscricaoMunicipal: ['', Validators.required],
         numeroDeDocumento: ['', Validators.required],
-    });
-
-    public formModelPessoa: FormGroup = this.fb.group({
-        numeroDeDocumento: ['', Validators.required],
+        inscricaoEstadual: [''],
     });
 
     constructor(private fb: FormBuilder,
         private service: DestinatarioService, private router: Router, private route: ActivatedRoute) {
-    }
-
-    public ngOnInit(): void {
-        this.formModel.addControl('empresa', this.formModelEmpresa);
-        this.formModel.updateValueAndValidity();
-        this.formModel.get('isEmpresa').valueChanges.subscribe((isEmpresa: boolean) => {
-            isEmpresa = !isEmpresa;
-        });
     }
 
     public onSubmit(): void {

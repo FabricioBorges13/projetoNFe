@@ -52,3 +52,17 @@ C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.OR
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CopyComplete
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.dll
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.pdb
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll.config
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_Nfe.Infra.ORM.pdb
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_NFe.Domain.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\Projeto_NFe.Domain.pdb
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.xml
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csprojResolveAssemblyReference.cache
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CoreCompileInputs.cache
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.csproj.CopyComplete
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.dll
+C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_Nfe.Infra.ORM\obj\Debug\Projeto_Nfe.Infra.ORM.pdb
