@@ -10,7 +10,7 @@ namespace Projeto_NFe.Applications.Features.Destinatarios.Mapping
         public MappingProfile()
         {
             CreateMap<DestinatarioAddCommand, Destinatario>()
-                 .ForPath(e => e.NumeroDocumento.NumeroDoDocumento, mc => mc.MapFrom(em => em.NumeroDoDocumento)); ;
+                 .ForPath(e => e.NumeroDocumento.NumeroDoDocumento, mc => mc.MapFrom(em => em.NumeroDocumento)); ;
 
             CreateMap<Destinatario, DestinatarioViewModel>()
                 .ForMember(e => e.NumeroDoDocumento, mc => mc.MapFrom(em => em.NumeroDocumento.NumeroDoDocumento));
@@ -19,7 +19,7 @@ namespace Projeto_NFe.Applications.Features.Destinatarios.Mapping
 
 
             CreateMap<DestinatarioUpdateCommand, Destinatario>()
-                .ForPath(e => e.NumeroDocumento.NumeroDoDocumento, mc => mc.MapFrom(em => em.NumeroDoDocumento));
+                .ForPath(e => e.NumeroDocumento.NumeroDoDocumento, mc => mc.MapFrom(em => em.NumeroDocumento));
         }
     }
 }

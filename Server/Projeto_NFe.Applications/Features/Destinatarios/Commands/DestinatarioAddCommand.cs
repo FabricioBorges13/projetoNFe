@@ -8,7 +8,7 @@ namespace Projeto_NFe.Applications.Features.Destinatarios.Commands
     {
         public string NomeRazaoSocial { get; set; }
         public string InscricaoEstadual { get; set; }
-        public string NumeroDoDocumento { get; set; }
+        public string NumeroDocumento { get; set; }
         public EnderecoAddCommand Endereco { get; set; }
 
         public virtual ValidationResult Validar()
@@ -21,7 +21,7 @@ namespace Projeto_NFe.Applications.Features.Destinatarios.Commands
             {
                 RuleFor(x => x.NomeRazaoSocial).NotNull().NotEmpty();
                 RuleFor(x => x.InscricaoEstadual).NotNull();
-                RuleFor(x => x.NumeroDoDocumento).NotNull().NotEmpty();
+                RuleFor(x => x.NumeroDocumento).NotNull().NotEmpty();
                 RuleFor(x => x.Endereco).NotNull().NotEmpty();
             }
         }

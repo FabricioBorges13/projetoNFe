@@ -20,7 +20,7 @@ export class DestinatarioAddComponent {
         numero: ['', Validators.required],
         municipio: ['', Validators.required],
         estado: ['', Validators.required],
-        numeroDeDocumento: ['', Validators.required],
+        numeroDocumento: ['', Validators.required],
         inscricaoEstadual: [''],
     });
 
