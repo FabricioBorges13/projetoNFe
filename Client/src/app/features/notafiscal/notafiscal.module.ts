@@ -1,3 +1,4 @@
+import { ProdutoService } from './../produto/shared/produto.service';
 import { NotaFiscalViewComponent } from './notafiscal-view/notafiscal-view.component';
 import { DestinatarioService } from './../destinatario/shared/destinatario.service';
 import { NgModule } from '@angular/core';
@@ -26,7 +27,7 @@ import { NotaFiscalEditComponent } from './notafiscal-edit/notafiscal-edit.compo
         NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule, DropDownsModule ],
     exports: [],
     providers: [NotaFiscalGridService, NotaFiscalService,
-        EmitenteService, TransportadorService, DestinatarioService, NotaFiscalResolveService,
+        EmitenteService, TransportadorService, DestinatarioService, ProdutoService, NotaFiscalResolveService,
         ListProdutosInNotaFiscalResolveService],
 })
 export class NotaFiscalModule {}

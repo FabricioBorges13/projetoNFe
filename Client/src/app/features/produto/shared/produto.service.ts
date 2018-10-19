@@ -52,7 +52,7 @@ export class ProdutoService extends BaseService {
     }
 
     public getByName(filterValue: string): Observable<Produto[]> {
-        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(Produto), tolower('${filterValue}'))`;
+        const queryStr: string = `$skip=0&$count=true&$filter=contains(tolower(Descricao), tolower('${filterValue}'))`;
 
         return this.http
             .get(`${this.api}?${queryStr}`)

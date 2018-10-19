@@ -149,6 +149,33 @@
                     </div>
                 </div>
 
+                <div class="row feature-view__group">
+                        <div class="col-md-12 col-sm-12 feature-view__body">
+                        <div>
+                            <label class="form__label" for="produto" [class.form__label--error]="form.get('produto').hasError('required') && form.get('produto').touched">Escolha o Produto
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                        </div>
+                        <div>
+                            <kendo-dropdownlist class="form__input--dropdown" formControlName="produto" id="produto"
+                                [data]="data"
+                                [textField]="'descricao'"
+                                [valueField]="'descricao'"
+                                [filterable]="true"
+                                (filterChange)="onAutoCompleteChangeProduto($event)">
+                            </kendo-dropdownlist>
+                            <span class="form__label--error" *ngIf="form.get('produto').hasError('required')
+                        && form.get('produto').touched">Campo Obrigatório</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row feature-view__group">
+                    <div class="form__label">Produtos Selecionados</div>
+                    <div *ngFor="let produto of notafiscal">
+                      <i class="fa fa-plus"></i>
+                      {{ produto.descricao | titlecase }}
+                    </div>
+                  </div>
             </div>
         </div>
     </form>
