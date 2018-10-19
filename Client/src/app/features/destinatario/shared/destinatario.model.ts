@@ -13,11 +13,17 @@ export class DestinatarioAddCommand {
     public numeroDoDocumento: string;
     public endereco: Endereco;
 
-    constructor(destinatario: Destinatario) {
+    constructor(destinatario: any) {
         this.nomeRazaoSocial = destinatario.nomeRazaoSocial;
         this.inscricaoEstadual = destinatario.inscricaoEstadual;
         this.numeroDoDocumento = destinatario.numeroDoDocumento;
-        this.endereco = destinatario.endereco;
+        this.endereco = new Endereco();
+        this.endereco.logradouro = destinatario.logradouro;
+        this.endereco.bairro = destinatario.bairro;
+        this.endereco.numero = destinatario.numero;
+        this.endereco.municipio = destinatario.municipio;
+        this.endereco.estado = destinatario.estado;
+        this.endereco.pais = 'Brasil';
     }
 }
 

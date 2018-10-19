@@ -16,11 +16,12 @@ import { NotaFiscalDetailComponent } from './notafiscal-view/notafiscal-detail/n
 import { NotaFiscalListComponent } from './notafiscal-list/notafiscal-list.component';
 import { EmitenteService } from '../emitentes/shared/emitente.service';
 import { TransportadorService } from '../transportador/shared/transportador.service';
+import { NotaFiscalEditComponent } from './notafiscal-edit/notafiscal-edit.component';
 
 @NgModule({
     declarations: [NotaFiscalListComponent,
         NotaFiscalAddComponent, NotaFiscalDetailComponent,
-        NotaFiscalViewComponent,
+        NotaFiscalViewComponent, NotaFiscalEditComponent,
         ],
     imports: [ SharedModule, GridModule,
         NotaFiscalRoutingModule, NDDTitlebarModule, NDDTabsbarModule, DropDownsModule ],

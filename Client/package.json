@@ -47,6 +47,7 @@
         "@progress/kendo-theme-default": "~2.49.0",
         "@progress/kendo-ui": "~2017.2.621",
         "angular2-text-mask": "~9.0.0",
+        "angular2-ui-switch": "~1.2.0",
         "bootstrap-sass": "~3.3.7",
         "core-js": "~2.5.5",
         "font-awesome": "~4.7.0",

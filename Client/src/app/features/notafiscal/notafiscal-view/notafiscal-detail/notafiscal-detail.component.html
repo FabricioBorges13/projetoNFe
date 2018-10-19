@@ -59,9 +59,8 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-6"> 
-             <!-- Informações do endereço -->
-             <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
                 <div class="col-sm-12">
                     <span class="feature-view__title">Valor da nota</span>
                 </div>
@@ -97,7 +96,7 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 feature-view__body">
                     <div>
                         <span class="feature-view__label">Preço Total</span>
@@ -130,7 +129,30 @@
                         </span>
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="col-sm-12" *ngIf="listProdutosInNotaFiscal?.items.length > 0">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Produtos:</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-md-6 feature-view__body" *ngFor="let item of listProdutosInNotaFiscal?.items">
+                    <div>
+                        <span class="feature-view__label">Produto {{ item?.codigoProduto }} </span>
+                    </div>
+                    <div class="col-md-6">
+                        <span title="{{ item?.descricao }}" class="feature-view__value">
+                            Descrição: {{ item?.descricao }}
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <span title="{{ item?.valorUnitario }}" class="feature-view__value">
+                            Valor Unitario: {{ item?.valorUnitario | currency:'BRL' }}
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

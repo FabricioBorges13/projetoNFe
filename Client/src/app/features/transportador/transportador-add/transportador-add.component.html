@@ -11,6 +11,7 @@
                         </div>
                     </div>
                 </div>
+              
                 <div class="col-md-6 col-sm-6 feature-view__body">
                     <div>
                         <span class="form__label" [class.form__label--error]="form.get('nomeRazaoSocial').touched 
@@ -24,7 +25,15 @@
                         Field is required
                     </span>
                 </div>
-                <div class="col-md-6 col-sm-6 feature-view__body">
+                <div class="col-md-12 col-sm-12 feature-view__body">
+                    <div>
+                        <span class="form__label">Pessoa Jurídica?
+                        </span>
+                    </div>                   
+                    <ui-switch (change)="onChange($event)" size="small" color="blue"></ui-switch>
+                </div>
+              
+                <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="typeDocument">
                     <div>
                         <span class="form__label" [class.form__label--error]="form.get('inscricaoEstadual').touched 
                                                 && form.get('inscricaoEstadual').hasError('required')">Inscrição Estadual
@@ -37,15 +46,29 @@
                         Field is required
                     </span>
                 </div>
-                <div class="col-md-6 col-sm-6 feature-view__body">
+                <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="typeDocument">
                     <div>
                         <span class="form__label" [class.form__label--error]="form.get('numeroDoDocumento').touched 
-                                        && form.get('numeroDoDocumento').hasError('required')">CPF/CNPJ
+                                        && form.get('numeroDoDocumento').hasError('required')">CNPJ
                             <span class="form__label--required">*</span>
                         </span>
                     </div>
                     <input class="form__input" [class.form__input--error]="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')"
-                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento">
+                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento" placeholder="Ex.: 00.000.000/0000-00">
+                    <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')">
+                        Field is required
+                    </span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 feature-view__body" *ngIf="!typeDocument">
+                    <div>
+                        <span class="form__label" [class.form__label--error]="form.get('numeroDoDocumento').touched 
+                                        && form.get('numeroDoDocumento').hasError('required')">CPF
+                            <span class="form__label--required">*</span>
+                        </span>
+                    </div>
+                    <input class="form__input" [class.form__input--error]="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')"
+                        autocomplete="off" type="text" formControlName="numeroDoDocumento" id="numeroDoDocumento" placeholder="Ex.: 000.000.000-00">
                     <span class="form__label form__label--error form__label--message" *ngIf="form.get('numeroDoDocumento').touched && form.get('numeroDoDocumento').hasError('required')">
                         Field is required
                     </span>
