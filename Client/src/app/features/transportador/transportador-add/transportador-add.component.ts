@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class TransportadorAddComponent{
 
     public title: string = 'Transportador';
+    public typeDocument: boolean = false;
 
     private form: FormGroup = this.fb.group({
         nomeRazaoSocial: ['', Validators.required],
@@ -33,5 +34,9 @@ export class TransportadorAddComponent{
         .subscribe(() => {
             this.router.navigate(['transportador']);
         });
+    }
+
+    public onChange(): void {
+        this.typeDocument = !this.typeDocument;
     }
 }
