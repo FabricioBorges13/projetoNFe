@@ -48,13 +48,7 @@ namespace Projeto_Nfe.Infra.ORM.Features.Produtos
 
         public bool Update(Produto objeto)
         {
-            DbEntityEntry dbEntityEntry = _context.Entry(objeto);
-
-            if (dbEntityEntry.State == EntityState.Detached)
-            {
-                _context.Produtos.Attach(objeto);
-            }
-
+            _context.Entry(objeto).State = EntityState.Modified;
             return _context.SaveChanges() > 0;
         }
     }

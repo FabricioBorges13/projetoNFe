@@ -70,14 +70,14 @@ namespace Projeto_NFe.Application.Tests.Features.NotasFiscais
             //Arrange
             var nota = ObjectMother.NotaFiscalValidaParaDeletar;
 
-            _notaFiscalRepository.Setup(x => x.Delete(nota.NotaFiscalIds[1])).Returns(true);
+            _notaFiscalRepository.Setup(x => x.Delete(nota.NotaFiscalIds[0])).Returns(true);
 
             //Action
             Action notaDeleteAction = () => _notaFiscalService.Delete(nota);
 
             //Assert
             notaDeleteAction.Should().NotThrow<Exception>();
-            _notaFiscalRepository.Verify(x => x.Delete(nota.NotaFiscalIds[1]), Times.Once());
+            _notaFiscalRepository.Verify(x => x.Delete(nota.NotaFiscalIds[0]), Times.Once());
             _notaFiscalRepository.VerifyNoOtherCalls();
         }
 
@@ -101,29 +101,33 @@ namespace Projeto_NFe.Application.Tests.Features.NotasFiscais
         [Test]
         public void ApplService_NotaFiscal_GetAll_Deve_Listar_Todos_NotaFiscals()
         {
-            NotaFiscal nota = ObjectMother.NotaFiscalValida;
-            List<NotaFiscal> notaFiscalList = new List<NotaFiscal> { nota };
-           
-            _notaFiscalRepository.Setup(x => x.GetAll()).Returns(notaFiscalList.AsQueryable());
-
-            List<NotaFiscal> resultNotaFiscalList = _notaFiscalService.GetAll().ToList();
-
-            _notaFiscalRepository.Verify(x => x.GetAll());
-            resultNotaFiscalList.Should().NotBeNull();
-            resultNotaFiscalList.Should().HaveCount(1);
+            //Arrange
+            var notafiscal = ObjectMother.NotaFiscalValidaComId;
+            var repositoryMockValue = new List<NotaFiscal>() { notafiscal }.AsQueryable();
+            _notaFiscalRepository.Setup(odr => odr.GetAll()).Returns(repositoryMockValue);
+            //Action
+            var notafiscalCB = _notaFiscalService.GetAll();
+            //Assert
+            _notaFiscalRepository.Verify(nf => nf.GetAll(), Times.Once);
+            notafiscalCB.Should().NotBeNull();
+            notafiscalCB.Count().Should().Be(repositoryMockValue.Count());
+            //Perceba que Equals de Entity já compara os Id's
+            notafiscalCB.First().Should().Be(repositoryMockValue.First());
         }
 
         [Test]
-        public void ApplService_NotaFiscal_Get_Deve_Retornar_Um_NotaFiscal()
+        public void ApplService_NotaFiscal_Get_Deve_Retornar_Uma_NotaFiscal()
         {
-            NotaFiscal notaFiscal = ObjectMother.NotaFiscalValida;
-            _notaFiscalRepository.Setup(x => x.GetById(It.IsAny<long>())).Returns(notaFiscal);
-
-            NotaFiscal notaFiscalResult = _notaFiscalService.GetById(notaFiscal.Id);
-
-            _notaFiscalRepository.Verify(p => p.GetById(It.IsAny<long>()), Times.Once());
-            notaFiscalResult.Should().NotBeNull();
-            notaFiscalResult.Id.Should().Be(notaFiscal.Id);
+            //Arrange
+            var notafiscal = ObjectMother.NotaFiscalValidaComId;
+            _notaFiscalRepository.Setup(nf => nf.GetById(notafiscal.Id)).Returns(notafiscal);
+            //Action
+            var notaResult = _notaFiscalService.GetById(notafiscal.Id);
+            //Assert
+            _notaFiscalRepository.Verify(nf => nf.GetById(notafiscal.Id), Times.Once);
+            notaResult.Should().NotBeNull();
+            notaResult.Should().BeOfType<NotaFiscal>();
+            notaResult.Id.Should().Be(notafiscal.Id);
         }
     }
 }

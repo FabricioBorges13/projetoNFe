@@ -13,7 +13,7 @@
                     </div>
                     <div>
                         <span title="{{ notaFiscal?.dataEmissao }}" class="feature-view__value">
-                            {{ notaFiscal?.dataEmissao }}
+                            {{ notaFiscal?.dataEmissao | date: 'dd/MM/yyyy hh:mm' }}
                         </span>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     </div>
                     <div>
                         <span title="{{ notaFiscal?.dataEntrada }}" class="feature-view__value">
-                            {{ notaFiscal?.dataEntrada }}
+                            {{ notaFiscal?.dataEntrada | date: 'dd/MM/yyyy hh:mm' }}
                         </span>
                     </div>
                 </div>
@@ -59,9 +59,8 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-6"> 
-             <!-- Informações do endereço -->
-             <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
                 <div class="col-sm-12">
                     <span class="feature-view__title">Valor da nota</span>
                 </div>
@@ -73,7 +72,7 @@
                     </div>
                     <div class="truncate">
                         <span title="{{ notaFiscal?.valorIpi }}" class="feature-view__value">
-                            {{ notaFiscal?.valorIpi }}
+                            {{ notaFiscal?.valorIpi | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
@@ -83,7 +82,7 @@
                     </div>
                     <div class="truncate">
                         <span title="{{ notaFiscal?.valorIcms }}" class="feature-view__value">
-                            {{ notaFiscal?.valorIcms}}
+                            {{ notaFiscal?.valorIcms | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
@@ -93,18 +92,18 @@
                     </div>
                     <div class="truncate">
                         <span title="{{ notaFiscal?.valorDoFrete }}" class="feature-view__value">
-                            {{ notaFiscal?.valorDoFrete}}
+                            {{ notaFiscal?.valorDoFrete | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6 feature-view__body">
                     <div>
                         <span class="feature-view__label">Preço Total</span>
                     </div>
                     <div class="truncate">
                         <span title="{{ notaFiscal?.precoTotal }}" class="feature-view__value">
-                            {{ notaFiscal?.precoTotal }}
+                            {{ notaFiscal?.precoTotal | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
@@ -115,7 +114,7 @@
                     </div>
                     <div class="truncate">
                         <span title="{{ notaFiscal?.valorTotalDosProdutos }}" class="feature-view__value">
-                            {{ notaFiscal?.valorTotalDosProdutos }}
+                            {{ notaFiscal?.valorTotalDosProdutos | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
@@ -126,11 +125,34 @@
                     </div>
                     <div class="truncate">
                         <span title="{{ notaFiscal?.valorTotalDaNota }}" class="feature-view__value">
-                            {{ notaFiscal?.valorTotalDaNota}}
+                            {{ notaFiscal?.valorTotalDaNota | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="col-sm-12" *ngIf="listProdutosInNotaFiscal?.items.length > 0">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Produtos:</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-md-6 feature-view__body" *ngFor="let item of listProdutosInNotaFiscal?.items">
+                    <div>
+                        <span class="feature-view__label">Produto {{ item?.codigoProduto }} </span>
+                    </div>
+                    <div class="col-md-6">
+                        <span title="{{ item?.descricao }}" class="feature-view__value">
+                            Descrição: {{ item?.descricao }}
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <span title="{{ item?.valorUnitario }}" class="feature-view__value">
+                            Valor Unitario: {{ item?.valorUnitario | currency:'BRL' }}
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

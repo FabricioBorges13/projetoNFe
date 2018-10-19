@@ -1,6 +1,4 @@
-﻿using Projeto_NFe.Base.Domain;
-using Projeto_NFe.Domain.Base.Identificacao;
-using System;
+﻿using Projeto_NFe.Domain.Base.Identificacao;
 
 namespace Projeto_NFe.Domain.Features.Emitentes
 {
@@ -8,14 +6,15 @@ namespace Projeto_NFe.Domain.Features.Emitentes
     {
         public string inscricaoMunicipal { get; set; }
 
-        //public override void Validar()
-        //{
-        //    base.Validar();
-        //    ValidarMunicipal();
-        //}
-        //public void ValidarMunicipal() {
-        //    if (string.IsNullOrEmpty(inscricaoMunicipal))
-        //        throw new InscricaoMunicipalEstaVaziaException();
-        //}
+        public override void Validar()
+        {
+            base.Validar();
+            ValidarMunicipal();
+        }
+        public void ValidarMunicipal()
+        {
+            if (string.IsNullOrEmpty(inscricaoMunicipal))
+                throw new InscricaoMunicipalEstaVaziaException();
+        }
     }
 }

@@ -45,7 +45,11 @@
     <Compile Include="Base\Exceptions\CodigosDeErro.cs" />
     <Compile Include="Base\Exceptions\DomainException.cs" />
     <Compile Include="Base\Exceptions\NotFoundException.cs" />
+    <Compile Include="Base\Identificacao\EnderecoVazioOuNuloException.cs" />
     <Compile Include="Base\Identificacao\Identificacao.cs" />
+    <Compile Include="Base\Identificacao\InscricaoEstadualVazioOuNuloException.cs" />
+    <Compile Include="Base\Identificacao\NomeVazioOuNuloException.cs" />
+    <Compile Include="Base\Identificacao\PossuiVinculoComNotaException.cs" />
     <Compile Include="Base\Imposto\Imposto.cs" />
     <Compile Include="Base\Imposto\ValorImpostoInvalido.cs" />
     <Compile Include="Base\NumeroDeDocumentos\CNPJInvalidoPossuiLetrasOuForaDePadraoException .cs" />

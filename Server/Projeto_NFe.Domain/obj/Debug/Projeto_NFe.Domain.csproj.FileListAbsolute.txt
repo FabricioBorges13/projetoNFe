@@ -6,21 +6,15 @@ C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Domain\obj
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
 C:\Users\ndduser\Desktop\Solid-Ops\Projeto_NFe_web\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.pdb
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csprojAssemblyReference.cache
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
-C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.dll
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.pdb
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csprojAssemblyReference.cache
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
 C:\Users\vinicius\Desktop\solidops-github\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb
-C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.dll
-C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.pdb
-C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csprojResolveAssemblyReference.cache
-C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
-C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
-C:\Users\Johns\Source\Repos\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\bin\Debug\Projeto_NFe.Domain.pdb
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csprojAssemblyReference.cache
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.csproj.CoreCompileInputs.cache
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.dll
+C:\Users\carol\Desktop\Academia Programador\projetoNFe\Server\Projeto_NFe.Domain\obj\Debug\Projeto_NFe.Domain.pdb

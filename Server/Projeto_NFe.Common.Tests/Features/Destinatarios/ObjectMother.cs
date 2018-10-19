@@ -16,7 +16,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NumeroDocumento = "078.463.799-76",
                     InscricaoEstadual = "123413213163485484301.16",
                     NomeRazaoSocial = "Roubo e furto",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                 };
             }
         }
@@ -31,7 +31,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NumeroDocumento = "60.353.014/0001-10",
                     InscricaoEstadual = "123413213163485484301.16",
                     NomeRazaoSocial = "Roubo e furto",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                 };
             }
         }
@@ -91,7 +91,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NumeroDocumento = "85.935.915/0001-41",
                     NomeRazaoSocial = "Again",
                     InscricaoEstadual = "123413213163485484301.16",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                 });
 
                 destinatarioList.Add(new Destinatario()
@@ -100,7 +100,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NumeroDocumento = "09.005.154/0001-40",
                     NomeRazaoSocial = "Heroes Come Back",
                     InscricaoEstadual = "22222222222222222.16",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                 });
                 destinatarioList.Add(new Destinatario()
                 {
@@ -108,7 +108,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NumeroDocumento = "60.353.014/0001-10",
                     NomeRazaoSocial = "Pegasus Fantasy",
                     InscricaoEstadual = "123413213163485484301.16",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                 });
 
                 return destinatarioList.AsQueryable();

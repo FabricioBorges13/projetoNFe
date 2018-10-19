@@ -114,9 +114,8 @@ namespace Projeto_NFe.Infra.ORM.Tests.Features.NotasFiscais
         public void NotaFiscalRepository_DeveEditarIdDesconhecido_DeveSerNulo()
         {
             // Arrange
-            _notaFiscal = ObjectMother.NotaFiscalValida;
-            var unknownId = 20;
-            _notaFiscal.Id = unknownId;
+            _notaFiscal = ObjectMother.NotaFiscalValidaComId;
+            _notaFiscal.Id = 20;
             //Action
             Action updatedAction = () => _repository.Update(_notaFiscal);
             // Verify

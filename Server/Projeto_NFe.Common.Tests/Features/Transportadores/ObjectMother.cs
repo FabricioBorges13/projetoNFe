@@ -20,7 +20,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NomeRazaoSocial = "Razao",
                     NumeroDocumento = "432.428.468-77",
                     InscricaoEstadual = "Estadual",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                     ResponsabilidadeFrete = true
                 };
             }
@@ -36,7 +36,7 @@ namespace Projeto_NFe.Common.Tests.Features
                     NomeRazaoSocial = "Razao",
                     NumeroDocumento = "432.428.468-77",
                     InscricaoEstadual = "Estadual",
-                    Endereco = destinatarioValido,
+                    Endereco = enderecoValido,
                     ResponsabilidadeFrete = true
                 };
             }

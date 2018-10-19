@@ -1,6 +1,5 @@
 ﻿using Projeto_NFe.Domain.Base;
 using System;
-using System.Runtime.Serialization;
 
 namespace Projeto_NFe.Domain.Features.Emitentes
 {
