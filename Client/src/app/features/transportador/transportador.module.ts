@@ -11,6 +11,7 @@ import { TransportadorRouting } from './transportador-routing.module';
 import { TransportadorGridService, TransportadorService, TransportadorResolveService } from './shared/transportador.service';
 import { TransportadorViewComponent } from './transportador-view/transportador-view.component';
 import {Ng2BRPipesModule} from 'ng2-brpipes';
+import { UiSwitchModule } from 'angular2-ui-switch';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {Ng2BRPipesModule} from 'ng2-brpipes';
         NDDTabsbarModule,
         NDDTitlebarModule,
         Ng2BRPipesModule,
+        UiSwitchModule,
     ],
     declarations: [
         TransportadorListComponent,
