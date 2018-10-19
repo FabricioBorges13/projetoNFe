@@ -20,6 +20,7 @@ namespace Projeto_NFe.Applications.Features.Destinatarios.Commands
             public AddDestinatarioCommandValidator()
             {
                 RuleFor(x => x.NomeRazaoSocial).NotNull().NotEmpty();
+                RuleFor(x => x.InscricaoEstadual).NotNull();
                 RuleFor(x => x.NumeroDoDocumento).NotNull().NotEmpty();
                 RuleFor(x => x.Endereco).NotNull().NotEmpty();
             }

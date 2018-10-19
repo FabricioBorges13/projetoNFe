@@ -15,7 +15,7 @@ namespace Projeto_Nfe.Infra.ORM.Features.Destinatarios
             this.ToTable("TBDestinatario");
             this.HasKey(o => o.Id);
 
-            this.HasOptional(o => o.InscricaoEstadual);
+            this.Property(o => o.InscricaoEstadual);
             this.Property(o => o.NomeRazaoSocial);
 
         }
