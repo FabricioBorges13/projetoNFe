@@ -5,6 +5,7 @@ import { NotaFiscalAddComponent } from './notafiscal-add/notafiscal-add.componen
 import { NotaFiscalResolveService, ListProdutosInNotaFiscalResolveService } from './shared/notafiscal.service';
 import { NotaFiscalViewComponent } from './notafiscal-view/notafiscal-view.component';
 import { NotaFiscalDetailComponent } from './notafiscal-view/notafiscal-detail/notafiscal-detail.component';
+import { NotaFiscalEditComponent } from './notafiscal-edit/notafiscal-edit.component';
 
 const notafiscalRoutes: Routes = [
     {
@@ -45,7 +46,7 @@ const notafiscalRoutes: Routes = [
                             },
                             {
                                 path: 'edit',
-                                /*component: EmitenteEditComponent,*/
+                                component: NotaFiscalEditComponent,
                             },
                         ],
                     },
